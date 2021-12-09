@@ -1,0 +1,71 @@
+<div class="card text-left">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="#">Questão 01</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div class="form-check form-check-inline-center">
+      <h5 class="form-check form-check-inline">Tipo de questão: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+          checked (click)="onDiscursivaAtivo(true)">
+        <label class="form-check-label" for="inlineRadio1">Discursiva</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" 
+            (click)="onObjetivaAtivo(true)">
+        <label class="form-check-label"  for="inlineRadio2">Objetiva</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled
+        (click)="onEscalaAtivo(true)">
+        <label class="form-check-label" for="inlineRadio3">Escala (disabled)</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+        (click)="onSimnaoAtivo(true)">
+        <label class="form-check-label" for="inlineRadio2">Sim/não</label>
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Enunciado"></textarea>
+      </div>
+     
+      
+      <div *ngIf="objetivaAtivo">
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Alternativa A"></textarea>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Alternativa B"></textarea>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Alternativa C"></textarea>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Alternativa D"></textarea>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Alternativa E"></textarea>
+        </div>
+      </div>
+      
+      
+      <div *ngIf="simnaoAtivo">
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Opção 1"></textarea>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="1" placeholder="Opção 2"></textarea>
+        </div>
+      </div>  
+    
+    
+    </div>
+  <div class="form-check form-check-inline-right text-right">
+    <a href="#" class="btn btn-primary">Concluído</a>
+  </div>
+  </div>
+</div>
