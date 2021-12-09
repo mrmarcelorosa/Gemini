@@ -14,9 +14,6 @@ import { InitialComponent } from './pages/initial/initial.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
-import { createGrupoComponent } from './pages/creategrupo/creategrupo.component';
-import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component';
-
 
 
 @NgModule({
@@ -24,9 +21,7 @@ import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component'
     AppComponent,
     UserComponent,
     LoginComponent,
-    InitialComponent,
-    createGrupoComponent,
-    ListargrupoComponent
+    InitialComponent
   ],
   imports: [
     BrowserModule,
