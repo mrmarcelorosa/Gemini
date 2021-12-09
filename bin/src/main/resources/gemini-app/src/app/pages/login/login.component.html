@@ -1,0 +1,32 @@
+<form class="form" [formGroup]="userForm">
+
+  <div style="font-size: 40px; color: #5D5FEF;">GEMINI</div>
+  <br>
+  <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #5D5FEF;">Nome</mat-label>
+    <input type="text" matInput [formControl]="emailControl" [errorStateMatcher]="matcher"
+      placeholder="Ex. Pedro" [formControlName]="'name'">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #5D5FEF;">Email</mat-label>
+    <input type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher"
+      placeholder="Ex. pat@example.com" [formControlName]="'email'">
+    <!-- <mat-error *ngIf="emailControl.hasError('email') && !emailControl.hasError('required')">
+      Por favor, insira um e-mail válido
+    </mat-error>
+    <mat-error *ngIf="emailControl.hasError('required')">
+      Este campo é <strong>Obrigatório</strong>
+    </mat-error> -->
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #5D5FEF;">Senha</mat-label>
+    <input type="password" matInput [formControl]="emailControl" [errorStateMatcher]="matcher"
+      placeholder="Ex. Pedro" [formControlName]="'password'">
+  </mat-form-field>
+
+  <button mat-raised-button class="button">Login</button>
+</form>

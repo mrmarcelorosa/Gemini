@@ -1,0 +1,39 @@
+<div id="update-form">
+    <mat-card class="col-md-12">
+        <mat-card-title>Cadastro de turmas</mat-card-title>
+        <mat-card-subtitle>Informe os dados abaixo para cadastrar uma nova turma</mat-card-subtitle>
+        <form class="form col-md-12" [formGroup]="turmaForm">
+    
+            <mat-form-field class="input-class col-md-12" appearance="fill">
+                <mat-label class="custom-input-label">Nome</mat-label>
+                <input type="text" matInput formControlName="name" placeholder="Ex. Segundo ano B">
+            </mat-form-field>
+            <br>
+    
+            <mat-form-field class="input-class col-md-12" appearance="fill">
+                <mat-label class="custom-input-label">Descrição</mat-label>
+                <input type="textarea" matInput formControlName="description">
+            </mat-form-field>
+            <br>
+    
+            <mat-form-field class="col-md-6" appearance="fill">
+                <mat-label class="custom-input-label">Data de criação</mat-label>
+                <input matInput formControlName="dateCreation" [matDatepicker]="pickerDateCreation">
+                <mat-datepicker-toggle matSuffix [for]="pickerDateCreation"></mat-datepicker-toggle>
+                <mat-datepicker #pickerDateCreation></mat-datepicker>
+            </mat-form-field>
+    
+            <mat-form-field class="col-md-6" appearance="fill">
+                <mat-label class="custom-input-label">Data de encerramento</mat-label>
+                <input matInput formControlName="dateEnding" [matDatepicker]="pickerEndingDate">
+                <mat-datepicker-toggle matSuffix [for]="pickerEndingDate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEndingDate></mat-datepicker>
+            </mat-form-field>
+    
+            <div class="col-md-12">
+                <button class="square-button" mat-raised-button (click)="cancel()">Cancelar</button>
+                <button class="square-button" mat-raised-button color="primary" (click)="updateTurma()">Atualizar</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
