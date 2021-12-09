@@ -14,6 +14,7 @@ import { InitialComponent } from './pages/initial/initial.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
+import { QuestaopageComponent } from './pages/questaopage/questaopage.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     UserComponent,
     LoginComponent,
-    InitialComponent
+    InitialComponent,
+    QuestaopageComponent
   ],
   imports: [
     BrowserModule,

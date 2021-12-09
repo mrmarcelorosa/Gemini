@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Questao} from './../../model/questao';
+import {QuestaoService} from './../../service/questao.service';
 
 
 @Component({
@@ -9,6 +10,9 @@ import {Questao} from './../../model/questao';
   styleUrls: ['./questaopage.component.scss']
 })
 export class QuestaopageComponent implements OnInit {
+  questaoObj: Questao;
+  alternativasObj: any;
+  return: any;
   objetivaAtivo = false;
   discursivaAtivo = false;
   escalaAtivo = false;
@@ -17,9 +21,34 @@ export class QuestaopageComponent implements OnInit {
   
   
   ngOnInit(): void {
+    this.alternativasObj = {};
+    this.questaoObj= new Questao();
   }
 
-  constructor() {
+  constructor(private questaoService: QuestaoService) {
+  }
+
+  saveQuestao (questao: Questao){
+    this.mergeAlternativas();
+    console.log(this.questaoObj);
+    this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
+      this.return = resposta;
+      alert("Questao cadastrada: "+this.return.name);
+    })
+  }
+
+  mergeAlternativas(){           //juntar alternativas na String alternativas usando ; pra dividir (mudar?)
+    if(this.tipoQuestao ==1){
+      this.questaoObj.alternativas = this.alternativasObj.a + ";";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.b + ";";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.c + ";";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.d + ";";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.e;
+    }if(this.tipoQuestao == 3){
+      this.questaoObj.alternativas = this.alternativasObj.a + ";";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.b;
+    }
+    this.questaoObj.tipo_alternativa = this.tipoQuestao;
   }
 
   onObjetivaAtivo(ativo: boolean){
