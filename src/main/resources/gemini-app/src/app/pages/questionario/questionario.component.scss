@@ -1,0 +1,61 @@
+.grid-container {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 100%;
+    padding: 10px;
+    margin: 0px 50px;
+}
+
+.titulo {
+    border-radius: 8px;
+    text-align: center;
+    font-size: 35px;
+    color: #000000;
+}
+
+.titulo2 {
+    border-radius: 8px;
+    text-align: center;
+    font-size: 28px;
+    color: #FFFFFF;
+    font-weight: 400;
+	margin-top: 10px;
+}
+
+.subtitulo{
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.card{
+    text-align: center;
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 100px;
+    max-height: 100px;
+    height: 100px;
+    margin: 10px 23px;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	background-color: #5D5FEF;
+}
+
+.icon-delete{
+	float: right;
+	margin: 5px 5px 0px 10px;
+	color: #FFFFFF;
+}
+
+.icon-delete:hover{
+	cursor: pointer;
+}
+
+.novo{
+    background-color: #FFFFFF;
+    border-color: blueviolet;
+}

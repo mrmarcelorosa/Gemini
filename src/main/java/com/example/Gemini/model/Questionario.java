@@ -24,5 +24,5 @@ public class Questionario implements Serializable {
     private String name;
 
     @Column(name="turma")
-    private Integer turma;
+    private Integer turmaId;
 }

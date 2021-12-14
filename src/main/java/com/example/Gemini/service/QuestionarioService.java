@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QuestionarioService {
 
@@ -15,5 +17,19 @@ public class QuestionarioService {
 
     public Questionario save(Questionario questionario){
         return repository.save(questionario);
+    }
+
+    public List<Questionario> getList(){
+        return repository.findAll();
+    }
+
+    public boolean delete(Questionario q){
+        try{
+            repository.delete(q);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
