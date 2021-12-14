@@ -4,3 +4,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.faixa{
+	background-color: #5D5FEF;
+	height: 65px;
+    
+}
+
+.logo{
+    text-align: center;
+    font-size: 48px;
+    color: #FFFFFF;
+    padding-top: 20px;
+}
