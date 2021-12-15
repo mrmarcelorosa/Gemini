@@ -4,3 +4,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+$main-color: #5D5FEF;
+
+.custom-input-label {
+    color: $main-color;
+}
+
+.custom-title{
+    font-size: 40px; color: main-color;
+}
+
+.square-button{
+    color: #ffffff;
+    background-color: $main-color;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.rounded-button {
+    background-color: $main-color !important;
+    margin-right: 5px;
+}

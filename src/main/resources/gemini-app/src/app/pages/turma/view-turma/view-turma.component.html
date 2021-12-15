@@ -1,0 +1,49 @@
+<div id="view-turma" class="col-md-12">
+    <mat-card>
+        <mat-card-title>Visualizar turma</mat-card-title>
+        <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
+        
+        <div class="row">
+            <span class="col-md-12">Nome: {{ turmaToView.name }}</span>
+        </div>
+        <div class="row">
+            <span class="col-md-6">Data de início: {{ turmaToView.dateCreation }}</span>
+            <span class="col-md-6">Data de encerramento: {{ turmaToView.dateEnding }}</span>
+        </div>
+    
+        <div class="row">
+            <span class="col-md-12">Descrição: </span>
+            <span class="col-md-12">{{ turmaToView.description }}</span>
+        </div>
+    </mat-card>
+    
+    <mat-card class="col-md-12">
+        <mat-card-title>Alunos da turma:</mat-card-title>
+        <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
+        
+        <div *ngIf="turmaToView.studentList && turmaToView.studentList.length > 0">
+            <table mat-table [dataSource]="turmaToView.studentList" class="mat-elevation-z8 demo-table col-md-12">
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Nome</th>
+                    <td mat-cell *matCellDef="let student">{{student.name}}</td>
+                </ng-container>
+        
+                <!-- Name Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>E-mail</th>
+                    <td mat-cell *matCellDef="let student">{{ student.email }} </td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+        <div *ngIf="turmaToView.studentList && turmaToView.studentList.length === 0">
+            <h3>Lista de alunos vazia.</h3>
+        </div>
+    </mat-card>
+    
+    <button class="square-button" (click)="goBackListTurma()" mat-raised-button>Voltar</button>
+</div>
