@@ -1,3 +1,4 @@
+import { QuestionarioModalComponent } from './pages/questionario-modal/questionario-modal.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,8 @@ import { InitialComponent } from './pages/initial/initial.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { QuestComponent } from './pages/quest/quest.component';
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     UserComponent,
     LoginComponent,
-    InitialComponent
+    InitialComponent,
+    QuestionarioModalComponent,
+    QuestComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     MatBottomSheetModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

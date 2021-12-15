@@ -1,0 +1,20 @@
+<div class="grid-container">
+    <br>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 titulo"> Questionários</div>
+        <div class="col-sm-2">
+            <button class="btn novo" (click)="openDialog()">Novo questionário</button>
+        </div>
+    </div>
+    <br>
+    <div class="subtitulo">Seus questionários</div>
+    <div  >
+        
+        <div class="card" *ngFor="let questionario of questionarioList">
+            <div ><img class="icon-delete" src="../../../assets/x-circle (1).svg" (click)="delete(questionario)"></div>
+            <div class="titulo2">{{questionario.name}}</div>            
+        </div>
+
+    </div>
+</div>
