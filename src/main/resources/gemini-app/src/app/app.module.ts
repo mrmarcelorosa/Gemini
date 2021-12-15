@@ -17,6 +17,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuestComponent } from './pages/quest/quest.component';
+import { QuestaopageComponent } from './pages/questaopage/questaopage.component';
 
 
 @NgModule({
@@ -27,6 +28,8 @@ import { QuestComponent } from './pages/quest/quest.component';
     InitialComponent,
     QuestionarioModalComponent,
     QuestComponent
+    InitialComponent,
+    QuestaopageComponent
   ],
   imports: [
     BrowserModule,
