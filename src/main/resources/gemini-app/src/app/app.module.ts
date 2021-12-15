@@ -30,9 +30,9 @@ import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component'
     LoginComponent,
     InitialComponent,
     QuestionarioModalComponent,
-    QuestComponent
+    QuestComponent,
     InitialComponent,
-    QuestaopageComponent
+    QuestaopageComponent,
     createGrupoComponent,
     ListargrupoComponent
   ],
