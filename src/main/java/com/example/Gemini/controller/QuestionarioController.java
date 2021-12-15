@@ -34,11 +34,7 @@ public class QuestionarioController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity.BodyBuilder delete(@RequestBody Questionario questionario){
-            if(service.delete(questionario)){
-                return ResponseEntity.ok();
-            }else{
-                return ResponseEntity.badRequest();
-            }
+    public void delete(@RequestBody Questionario questionario){
+            service.delete(questionario);
     }
 }

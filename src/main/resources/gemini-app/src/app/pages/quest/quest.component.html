@@ -12,7 +12,7 @@
     <div  >
         
         <div class="card" *ngFor="let questionario of questionarioList">
-            <div ><img class="icon-delete" src="../../../assets/x-circle (1).svg"></div>
+            <div ><img class="icon-delete" src="../../../assets/x-circle (1).svg" (click)="delete(questionario)"></div>
             <div class="titulo2">{{questionario.name}}</div>            
         </div>
 

@@ -23,13 +23,7 @@ public class QuestionarioService {
         return repository.findAll();
     }
 
-    public boolean delete(Questionario q){
-        try{
+    public void delete(Questionario q){
             repository.delete(q);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
     }
 }

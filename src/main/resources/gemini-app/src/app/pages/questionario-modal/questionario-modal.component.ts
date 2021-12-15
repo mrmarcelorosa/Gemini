@@ -32,7 +32,16 @@ export class QuestionarioModalComponent implements OnInit {
   }
 
   confirm(){
-
+    let questionario = new Questionario()
+    this.questForm.controls['id'].value? questionario.id = this.questForm.controls['id'].value: null;
+    questionario.name = this.questForm.controls['name'].value
+    questionario.turmaId = 1
+    //questionario.turmaId = this.questForm.controls['password'].value
+    console.log(questionario);
+    this.service.save(questionario).toPromise().then(data=>{
+      alert("Cadastro realizado com sucesso!")
+      this.onNoClick()
+    })
   }
 
 }
