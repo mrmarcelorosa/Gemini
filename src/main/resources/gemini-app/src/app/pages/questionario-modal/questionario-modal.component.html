@@ -1,8 +1,27 @@
-<h1 mat-dialog-title>Hi</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
-</div>
+<form class="form" [formGroup]="questForm">
+
+  <div style="font-size: 40px; color: #ffffff;">GEMINI</div>
+  <br>
+  <!-- <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #ffffff;">Nome</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher"
+      placeholder="Ex. Pedro" [formControlName]="'name'">
+  </mat-form-field>
+  <br> -->
+
+  <!-- <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #ffffff;">Email</mat-label>
+    <input type="email" matInput [errorStateMatcher]="matcher"
+      placeholder="Ex. pat@example.com" [formControlName]="'email'">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="input-class" appearance="fill">
+    <mat-label style="color: #ffffff;">Senha</mat-label>
+    <input type="password" matInput [errorStateMatcher]="matcher"
+      placeholder="" [formControlName]="'password'">
+  </mat-form-field> -->
+
+  <button mat-raised-button class="btn btn-success" (click)="confirm()">Confirmar</button> &nbsp;
+  <button mat-raised-button class="btn btn-danger" (click)="onNoClick()">Cancelar</button>
+</form>

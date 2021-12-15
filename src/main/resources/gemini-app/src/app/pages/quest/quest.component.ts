@@ -25,7 +25,7 @@ export class QuestComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(QuestionarioModalComponent, {
-      width: '250px'
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
