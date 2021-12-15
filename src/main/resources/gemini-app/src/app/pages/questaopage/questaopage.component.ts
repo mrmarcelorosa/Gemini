@@ -28,7 +28,7 @@ export class QuestaopageComponent implements OnInit {
   constructor(private questaoService: QuestaoService) {
   }
 
-  saveQuestao (questao: Questao){
+  saveQuestao (){
     this.mergeAlternativas();
     console.log(this.questaoObj);
     this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{

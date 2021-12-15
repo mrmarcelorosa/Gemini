@@ -31,7 +31,6 @@ import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component'
     InitialComponent,
     QuestionarioModalComponent,
     QuestComponent,
-    InitialComponent,
     QuestaopageComponent,
     createGrupoComponent,
     ListargrupoComponent
