@@ -18,6 +18,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuestComponent } from './pages/quest/quest.component';
 import { QuestaopageComponent } from './pages/questaopage/questaopage.component';
+import { createGrupoComponent } from './pages/creategrupo/creategrupo.component';
+import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component';
+
 
 
 @NgModule({
@@ -30,6 +33,8 @@ import { QuestaopageComponent } from './pages/questaopage/questaopage.component'
     QuestComponent
     InitialComponent,
     QuestaopageComponent
+    createGrupoComponent,
+    ListargrupoComponent
   ],
   imports: [
     BrowserModule,
