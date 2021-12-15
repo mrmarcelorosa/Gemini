@@ -4,14 +4,13 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-8 titulo"> Questionários</div>
         <div class="col-sm-2">
-            <button class="btn novo">Novo questionário</button>
+            <button class="btn novo" (click)="openDialog()">Novo questionário</button>
         </div>
     </div>
     <br>
-    <!-- <div style="text-align: center;"><img src="../../../assets/normal_line.svg"></div> -->
-
     <div class="subtitulo">Seus questionários</div>
     <div  >
+        
         <div class="card" *ngFor="let questionario of questionarioList">
             <div ><img class="icon-delete" src="../../../assets/x-circle (1).svg"></div>
             <div class="titulo2">{{questionario.name}}</div>            
