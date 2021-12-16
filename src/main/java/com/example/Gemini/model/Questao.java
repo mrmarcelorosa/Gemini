@@ -18,8 +18,8 @@ public class Questao implements Serializable{
     @GeneratedValue
     private long id;
 
-    @Column(name= "id_questionario")
-    private long id_questionario;
+    @Column(name= "idquest")
+    private long idquest;
 
     @Column(name = "name")
     private String name;
@@ -27,10 +27,10 @@ public class Questao implements Serializable{
     @Column(name = "alternativas")
     private String alternativas; //alternativas juntas aqui e pra separar usar função split("")
 
-    @Column
+    @Column(name = "resposta")
     private String resposta;
 
-    @Column
+    @Column(name = "tipo_alternativa")
     private int tipo_alternativa;
 
 }

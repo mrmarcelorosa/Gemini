@@ -37,9 +37,15 @@ export class QuestaopageComponent implements OnInit {
 
   saveQuestao (){
     this.mergeAlternativas();
+<<<<<<< HEAD
     this.questaoObj.idquest = this.idQuestionario;
     console.log("modal",this.questaoObj, "id: ", this.idQuestionario);
      this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
+=======
+    this.questaoObj.name = localStorage.getItem('id_questionario');
+    console.log("modal",this.questaoObj, "id: ", this.id);
+     this.questaoService.saveQuestao(this.questaoObj).toPromise().then(resposta =>{
+>>>>>>> 178bfc878991bc529b565687f3bd6cce850fa8f5
        this.return = resposta;
        alert("Questao cadastrada: "+this.return.name);
        this.close();
