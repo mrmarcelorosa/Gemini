@@ -21,6 +21,7 @@ export class QuestaopageComponent implements OnInit {
   escalaAtivo = false;
   simnaoAtivo = false;
   tipoQuestao: number=0;
+  id:number = parseInt(localStorage.getItem('id_questionario'));
   
   
   ngOnInit(): void {
@@ -36,8 +37,8 @@ export class QuestaopageComponent implements OnInit {
 
   saveQuestao (){
     this.mergeAlternativas();
-    this.questaoObj.id_questonario = parseInt(localStorage.getItem('id_questionario'));
-    console.log("modal",this.questaoObj);
+    this.questaoObj.id_questonario = this.id
+    console.log("modal",this.questaoObj, "id: ", this.id);
      this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
        this.return = resposta;
        alert("Questao cadastrada: "+this.return.name);
