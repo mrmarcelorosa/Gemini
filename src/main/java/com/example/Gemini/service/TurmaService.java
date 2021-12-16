@@ -1,5 +1,6 @@
 package com.example.Gemini.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.example.Gemini.model.Turma;
+import com.example.Gemini.model.User;
 import com.example.Gemini.repository.TurmaRepository;
 
 /**
@@ -21,6 +23,9 @@ import com.example.Gemini.repository.TurmaRepository;
 public class TurmaService {
 	@Autowired
 	TurmaRepository turmaRepository;
+	
+	@Autowired
+	UserService userService;
 
 	public Turma save(Turma turma) {
 		return turmaRepository.save(turma);
@@ -67,5 +72,19 @@ public class TurmaService {
 	
 	public void delete(Long id) {
 		turmaRepository.deleteById(id);
+	}
+	
+	public Turma addTurmaStudents(Turma turma) {
+		List<User> studentList = turma.getStudentList();
+		List<User> savedStudents = new ArrayList<User>();
+		
+		/* Savar lista de estudantes */
+		for(User student : studentList) {
+			User savedStudent = userService.save(student);
+			savedStudents.add(savedStudent);
+		}
+		
+		turma.setStudentList(savedStudents);
+		return turmaRepository.save(turma);
 	}
 }

@@ -43,6 +43,11 @@ public class TurmaController {
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public Turma get(@PathVariable("id") Long id){
        return turmaService.getById(id);
-    }	
+    }
+    
+    @RequestMapping(value = "/adicionarAlunosTurma", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Turma adicionarAlunosTurma(@RequestBody Turma turma){
+       return turmaService.addTurmaStudents(turma);
+    }
   
 }

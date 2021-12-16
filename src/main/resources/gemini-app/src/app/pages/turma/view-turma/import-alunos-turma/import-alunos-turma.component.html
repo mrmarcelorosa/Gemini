@@ -1,0 +1,24 @@
+<div class="row container-buttons-insert-data">
+    <input hidden  type="file" (change)="onChange($event)" #inputFile> 
+    <button class="square-button" mat-raised-button (click)="inputFile.click()">Importar arquivo .xls</button>
+    
+    <mat-spinner class="spinner-loading-data" diameter="40" *ngIf="isLoadingDataImport"></mat-spinner>
+    <button class="square-button" mat-raised-button (click)="removeData()">Remover todos os alunos</button>
+    <mat-spinner class="spinner-loading-data" diameter="40" *ngIf="isLoadingRemoveStudents"></mat-spinner>
+</div>
+
+<div *ngIf="isExcelFile === false">
+    Arquivo incorreto. Arquivo não é Excel.
+</div>
+<span *ngIf="isLoadingDataImport" class="k-i-loading k-icon"></span>
+<table>
+    <th *ngFor="let key of keys">
+        {{key}}
+    </th>
+    <tr *ngFor="let item of dataSheet | async">
+        <td *ngFor="let key of keys">
+            {{item[key]}}
+        </td>
+    </tr>
+</table>
+`

@@ -9,14 +9,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TurmaRouter } from './turma.router';
+import { TurmaResolve } from './turma.resolve';
 import { ListTurmaResolve } from './list-turma/list-turma.resolve';
 import { ListTurmaComponent } from './list-turma/list-turma.component';
-import { CreateTurmaComponent } from './create-turma/create-turma.component';
 import { ViewTurmaComponent } from './view-turma/view-turma.component';
-import { TurmaResolve } from './turma.resolve';
 import { EditTurmaComponent } from './edit-turma/edit-turma.component';
+import { CreateTurmaComponent } from './create-turma/create-turma.component';
+import { ImportAlunosTurmaComponent } from './view-turma/import-alunos-turma/import-alunos-turma.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditTurmaComponent } from './edit-turma/edit-turma.component';
     CreateTurmaComponent,
     ListTurmaComponent,
     ViewTurmaComponent,
-    EditTurmaComponent
+    EditTurmaComponent,
+    ImportAlunosTurmaComponent
   ],
   imports: [
     FormsModule,
@@ -38,6 +40,7 @@ import { EditTurmaComponent } from './edit-turma/edit-turma.component';
     MatNativeDateModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild(TurmaRouter)
   ],
   providers: [  

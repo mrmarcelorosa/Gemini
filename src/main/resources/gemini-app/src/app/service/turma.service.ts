@@ -33,5 +33,9 @@ export class TurmaService {
   public deleteTurma = (id) => {
     return this.http.delete(`${this.endpointTurma}/delete/${id}`);
   } 
+
+  public addStudentsTurma = (turma: Turma) => {
+    return this.http.post(`${this.endpointTurma}/adicionarAlunosTurma`, turma);
+  } 
   
 }
