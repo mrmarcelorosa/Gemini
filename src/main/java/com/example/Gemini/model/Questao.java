@@ -18,8 +18,8 @@ public class Questao implements Serializable{
     @GeneratedValue
     private long id;
 
-    @Column(name= "id_questionario")
-    private long id_questionario;
+    @Column(name= "idquest")
+    private long idquest;
 
     @Column(name = "name")
     private String name;
