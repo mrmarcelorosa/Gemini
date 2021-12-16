@@ -20,6 +20,8 @@ import { QuestComponent } from './pages/quest/quest.component';
 import { QuestaopageComponent } from './pages/questaopage/questaopage.component';
 import { createGrupoComponent } from './pages/creategrupo/creategrupo.component';
 import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component';
+import { QuestaolistComponent } from './pages/questaolist/questaolist.component';
+import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.component';
 
 
 
@@ -33,7 +35,9 @@ import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component'
     QuestComponent,
     QuestaopageComponent,
     createGrupoComponent,
-    ListargrupoComponent
+    ListargrupoComponent,
+    QuestaolistComponent,
+    QuestaoModalComponent
   ],
   imports: [
     BrowserModule,

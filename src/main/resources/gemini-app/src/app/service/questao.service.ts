@@ -11,6 +11,7 @@ export class QuestaoService {
   constructor(private http: HttpClient) { }
 
   public saveQuestao(questao: Questao): Observable<any> {
+    console.log(questao)
     return this.http.post(this.apiurl + '/questao/save', questao);
   }
 }

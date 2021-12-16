@@ -3,6 +3,7 @@ import { QuestionarioService } from './../../service/questionario.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Questionario } from 'src/app/model/questionario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quest',
@@ -12,7 +13,7 @@ import { Questionario } from 'src/app/model/questionario';
 export class QuestComponent implements OnInit {
   questionarioList: Array<any> = []
 
-  constructor(private service: QuestionarioService, private dialog: MatDialog) { }
+  constructor(private service: QuestionarioService, private dialog: MatDialog, private rout:Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -26,7 +27,7 @@ export class QuestComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(QuestionarioModalComponent, {
-      width: '500px'
+      width: '800px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -45,6 +46,12 @@ export class QuestComponent implements OnInit {
     } else {
 
     }
+  }
+
+  newQuestao(q:Questionario){
+    localStorage.setItem('id_questionario', q.id.toString());
+    this.rout.navigate(['/questao'])
+    
   }
 
 }

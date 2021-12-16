@@ -1,5 +1,8 @@
+import { QuestionarioModalComponent } from './../questionario-modal/questionario-modal.component';
+import { QuestaoModalComponent } from './../questao-modal/questao-modal.component';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {Questao} from './../../model/questao';
 import {QuestaoService} from './../../service/questao.service';
 
@@ -10,7 +13,7 @@ import {QuestaoService} from './../../service/questao.service';
   styleUrls: ['./questaopage.component.scss']
 })
 export class QuestaopageComponent implements OnInit {
-  questaoObj: Questao;
+  questaoObj: Questao = new Questao();
   alternativasObj: any;
   return: any;
   objetivaAtivo = false;
@@ -22,19 +25,24 @@ export class QuestaopageComponent implements OnInit {
   
   ngOnInit(): void {
     this.alternativasObj = {};
-    this.questaoObj= new Questao();
   }
 
-  constructor(private questaoService: QuestaoService) {
+  constructor(private questaoService: QuestaoService, public dialogRef: MatDialogRef<QuestionarioModalComponent>) {
+  }
+
+  close(): void {
+    this.dialogRef.close();
   }
 
   saveQuestao (){
     this.mergeAlternativas();
-    console.log(this.questaoObj);
-    this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
-      this.return = resposta;
-      alert("Questao cadastrada: "+this.return.name);
-    })
+    this.questaoObj.id_questonario = parseInt(localStorage.getItem('id_questionario'));
+    console.log("modal",this.questaoObj);
+     this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
+       this.return = resposta;
+       alert("Questao cadastrada: "+this.return.name);
+       this.close();
+     })
   }
 
   mergeAlternativas(){           //juntar alternativas na String alternativas usando ; pra dividir (mudar?)

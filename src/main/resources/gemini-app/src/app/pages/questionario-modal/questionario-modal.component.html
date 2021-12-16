@@ -1,24 +1,12 @@
 <form class="form" [formGroup]="questForm">
-  <div>Novo Questionario</div>
   <mat-form-field class="input-class" appearance="fill">
     <mat-label style="color: #000000;">Nome do questionario</mat-label>
     <input type="text" matInput [formControlName]="'name'">
   </mat-form-field>
   <br>
 
-  <!-- <mat-form-field class="input-class" appearance="fill">
-    <mat-label style="color: #ffffff;">Email</mat-label>
-    <input type="email" matInput [errorStateMatcher]="matcher"
-      placeholder="Ex. pat@example.com" [formControlName]="'email'">
-  </mat-form-field>
-  <br>
-
-  <mat-form-field class="input-class" appearance="fill">
-    <mat-label style="color: #ffffff;">Senha</mat-label>
-    <input type="password" matInput [errorStateMatcher]="matcher"
-      placeholder="" [formControlName]="'password'">
-  </mat-form-field> -->
-
   <button mat-raised-button class="btn btn-success" (click)="confirm()">Confirmar</button> &nbsp;
   <button mat-raised-button class="btn btn-danger" (click)="onNoClick()">Cancelar</button>
 </form>
+
+
