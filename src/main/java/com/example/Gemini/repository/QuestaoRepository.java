@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface QuestaoRepository extends CrudRepository<Questao, Long> {
     List<Questao> findAll();
+    List<Questao> getByIdQuestionario(Integer idquest);
 }
