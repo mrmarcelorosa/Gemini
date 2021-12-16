@@ -1,6 +1,6 @@
 export class Questao{
     id: number;
-    id_questonario: number;
+    idquest: number;
     name: String;
     alternativas: String;
     resposta: String;

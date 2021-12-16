@@ -14,4 +14,8 @@ export class QuestaoService {
     console.log(questao)
     return this.http.post(this.apiurl + '/questao/save', questao);
   }
+
+  public getAll(): Observable<any> {
+    return this.http.get(this.apiurl + '/questao/list');
+  }
 }
