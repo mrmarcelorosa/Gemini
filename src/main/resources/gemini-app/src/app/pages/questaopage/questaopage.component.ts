@@ -37,9 +37,9 @@ export class QuestaopageComponent implements OnInit {
 
   saveQuestao (){
     this.mergeAlternativas();
-    this.questaoObj.id_questonario = this.id
+    this.questaoObj.name = localStorage.getItem('id_questionario');
     console.log("modal",this.questaoObj, "id: ", this.id);
-     this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
+     this.questaoService.saveQuestao(this.questaoObj).toPromise().then(resposta =>{
        this.return = resposta;
        alert("Questao cadastrada: "+this.return.name);
        this.close();

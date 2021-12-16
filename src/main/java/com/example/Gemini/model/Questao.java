@@ -27,10 +27,10 @@ public class Questao implements Serializable{
     @Column(name = "alternativas")
     private String alternativas; //alternativas juntas aqui e pra separar usar função split("")
 
-    @Column
+    @Column(name = "resposta")
     private String resposta;
 
-    @Column
+    @Column(name = "tipo_alternativa")
     private int tipo_alternativa;
 
 }
