@@ -27,10 +27,20 @@ public class QuestaoController {
             return new Questao();
         }
     }
+    @RequestMapping(value = "/getquestoes", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public List<Questao> getByIdQuest(@RequestBody Integer id){
+
+        return service.getByIdQuest(id);
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Questao> getList(){
         return service.getList();
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void delete(@RequestBody Questao questao){
+        service.delete(questao);
     }
 
 
