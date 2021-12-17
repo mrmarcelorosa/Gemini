@@ -1,4 +1,65 @@
 
-<div>
-    <button (click)="openDialog()">Novo</button>
+<div class="direita">
+    <button class="btn btn-sucess margem2" (click)="openDialog()">Novo</button>
+</div><br><br>
+<div class="margem" *ngFor="let questao of questaoList">
+    <div class="card text-left">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="#">Questão 01</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="form-check form-check-inline-center">
+            
+            <div class="mb-3">
+              <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" disabled  ></textarea>
+            </div>
+           
+            
+            <div *ngIf="">
+              <div class="mb-3">
+                <textarea  class="form-control form-control-sm" id="Textarea2" rows="1" placeholder="Alternativa A" 
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea3" rows="1" placeholder="Alternativa B" 
+                [(ngModel)]="alternativasObj.b"></textarea>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea4" rows="1" placeholder="Alternativa C"
+                [(ngModel)]="alternativasObj.c"></textarea>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea5" rows="1" placeholder="Alternativa D"
+                [(ngModel)]="alternativasObj.d"></textarea>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea6" rows="1" placeholder="Alternativa E"
+                [(ngModel)]="alternativasObj.e"></textarea>
+              </div>
+            </div>
+            
+            
+            <div *ngIf="">
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea7" rows="1" placeholder="Opção 1" 
+                [(ngModel)]="alternativasObj.a"></textarea>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control form-control-sm" id="Textarea8" rows="1" placeholder="Opção 2"
+                [(ngModel)]="alternativasObj.b"></textarea>
+              </div>
+            </div>  
+          
+          
+          </div>
+        <div class="form-check form-check-inline-right text-right">
+          <a class="btn btn-primary" (click)="delete(questao)">Deletar</a>
+        </div>
+        </div>
+      </div>
 </div>
+

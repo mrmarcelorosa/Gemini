@@ -2,6 +2,7 @@ import { QuestaoModalComponent } from './../questao-modal/questao-modal.componen
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {QuestaoService} from './../../service/questao.service';
+import { Questao } from 'src/app/model/questao';
 
 @Component({
   selector: 'app-questaolist',
@@ -17,7 +18,7 @@ export class QuestaolistComponent implements OnInit {
   }
 
   getAll() {
-    this.questaoService.getAll().toPromise().then(data => {
+    this.questaoService.getQuestoes(parseInt(localStorage.getItem('id_questionario'))).toPromise().then(data => {
       this.questaoList = data;
       console.log(data);
     })
@@ -31,6 +32,18 @@ export class QuestaolistComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //this.getAll();
     });
+  }
+
+  delete(questao: Questao) {
+    console.log("Delete")
+    if (confirm("Deseja excluir")) {
+      this.questaoService.delete(questao).toPromise().then(data => {
+        alert("Questão removida com sucesso!")
+        this.getAll();
+      })
+    } else {
+
+    }
   }
 
 }
