@@ -1,6 +1,7 @@
 import { QuestaoModalComponent } from './../questao-modal/questao-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import {QuestaoService} from './../../service/questao.service';
 
 @Component({
   selector: 'app-questaolist',
@@ -8,10 +9,18 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./questaolist.component.scss']
 })
 export class QuestaolistComponent implements OnInit {
-
-  constructor(private dialog: MatDialog) { }
+  questaoList: Array<any> = [];
+  constructor(private dialog: MatDialog, private questaoService: QuestaoService) { }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll() {
+    this.questaoService.getAll().toPromise().then(data => {
+      this.questaoList = data;
+      console.log(data);
+    })
   }
 
   openDialog(): void {
