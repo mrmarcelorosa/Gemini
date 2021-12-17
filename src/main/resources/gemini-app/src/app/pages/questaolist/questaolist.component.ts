@@ -11,6 +11,7 @@ import { Questao } from 'src/app/model/questao';
 })
 export class QuestaolistComponent implements OnInit {
   questaoList: Array<any> = [];
+  alternativas2: Array<any>;
   constructor(private dialog: MatDialog, private questaoService: QuestaoService) { }
 
   ngOnInit(): void {
@@ -44,6 +45,10 @@ export class QuestaolistComponent implements OnInit {
     } else {
 
     }
+  }
+  separarQuestoes(a: String){
+    let toArray = a.toString().split(";");
+    this.alternativas2 = toArray;
   }
 
 }

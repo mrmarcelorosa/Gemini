@@ -1,13 +1,13 @@
 
 <div class="direita">
-    <button class="btn btn-sucess margem2" (click)="openDialog()">Novo</button>
+    <button class="btn novo margem2" (click)="openDialog()">Nova questão</button>
 </div><br><br>
-<div class="margem" *ngFor="let questao of questaoList">
+<div class="margem" *ngFor="let questao of questaoList; let i = index">
     <div class="card text-left">
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="true" href="#">Questão 01</a>
+              <a class="nav-link active" aria-current="true" href="#">Questão {{i+1}}</a>
             </li>
           </ul>
         </div>
@@ -18,39 +18,58 @@
               <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" disabled  ></textarea>
             </div>
            
+            <div *ngIf="questao.tipo_alternativa==0" >
+              <div class="mb-3">
+                <textarea class="form-control" id="Textarea1" rows="4" disabled placeholder="Resposta:" ></textarea>
+              </div>
+            </div>
             
-            <div *ngIf="">
+            <div *ngIf="questao.tipo_alternativa==1" >
+              {{separarQuestoes(questao.alternativas)}}
               <div class="mb-3">
-                <textarea  class="form-control form-control-sm" id="Textarea2" rows="1" placeholder="Alternativa A" 
-                ></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1"
+                >
+                <textarea  class="form-control form-control-sm" id="Textarea2" rows="1" value="{{alternativas2[0]}}"  
+                disabled ></textarea>
               </div>
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea3" rows="1" placeholder="Alternativa B" 
-                [(ngModel)]="alternativasObj.b"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1"
+                >
+                <textarea class="form-control form-control-sm" id="Textarea3" rows="1" value="{{alternativas2[1]}}" 
+                disabled ></textarea>
               </div>
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea4" rows="1" placeholder="Alternativa C"
-                [(ngModel)]="alternativasObj.c"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1"
+                >
+                <textarea class="form-control form-control-sm" id="Textarea4" rows="1" value="{{alternativas2[2]}}"
+                disabled></textarea>
               </div>
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea5" rows="1" placeholder="Alternativa D"
-                [(ngModel)]="alternativasObj.d"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1"
+                >
+                <textarea class="form-control form-control-sm" id="Textarea5" rows="1" value="{{alternativas2[3]}}"
+                disabled ></textarea>
               </div>
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea6" rows="1" placeholder="Alternativa E"
-                [(ngModel)]="alternativasObj.e"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1"
+                >
+                <textarea class="form-control form-control-sm" id="Textarea6" rows="1" value="{{alternativas2[4]}}"
+               disabled ></textarea>
               </div>
             </div>
             
             
-            <div *ngIf="">
+            <div *ngIf="questao.tipo_alternativa==3">
+              {{separarQuestoes(questao.alternativas)}}
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea7" rows="1" placeholder="Opção 1" 
-                [(ngModel)]="alternativasObj.a"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1">
+                <textarea class="form-control form-control-sm" id="Textarea7" rows="1" value="{{alternativas2[0]}}" 
+                disabled ></textarea>
               </div>
               <div class="mb-3">
-                <textarea class="form-control form-control-sm" id="Textarea8" rows="1" placeholder="Opção 2"
-                [(ngModel)]="alternativasObj.b"></textarea>
+                <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="option1">
+                <textarea class="form-control form-control-sm" id="Textarea8" rows="1" value="{{alternativas2[1]}}"
+                disabled ></textarea>
               </div>
             </div>  
           
