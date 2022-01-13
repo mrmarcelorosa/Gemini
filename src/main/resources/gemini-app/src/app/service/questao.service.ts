@@ -14,8 +14,14 @@ export class QuestaoService {
     console.log(questao)
     return this.http.post(this.apiurl + '/questao/save', questao);
   }
-
+  public getQuestoes(id: number): Observable<any> {
+    return this.http.post(this.apiurl + '/questao/getquestoes', id);
+  }
+  
   public getAll(): Observable<any> {
     return this.http.get(this.apiurl + '/questao/list');
+  }
+  public delete(questao: Questao): Observable<any> {
+    return this.http.post(this.apiurl + '/questionario/delete', questao);
   }
 }

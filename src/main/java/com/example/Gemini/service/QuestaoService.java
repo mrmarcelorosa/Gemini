@@ -21,4 +21,12 @@ public class QuestaoService {
     public List<Questao> getList(){
         return repository.findAll();
     }
+
+    public List<Questao> getByIdQuest(Integer id){
+        return repository.findByIdQuest(id);
+    }
+
+    public void delete(Questao q){
+        repository.delete(q);
+    }
 }

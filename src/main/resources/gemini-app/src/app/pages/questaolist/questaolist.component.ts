@@ -2,6 +2,7 @@ import { QuestaoModalComponent } from './../questao-modal/questao-modal.componen
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {QuestaoService} from './../../service/questao.service';
+import { Questao } from 'src/app/model/questao';
 
 @Component({
   selector: 'app-questaolist',
@@ -10,6 +11,7 @@ import {QuestaoService} from './../../service/questao.service';
 })
 export class QuestaolistComponent implements OnInit {
   questaoList: Array<any> = [];
+  alternativas2: Array<any>;
   constructor(private dialog: MatDialog, private questaoService: QuestaoService) { }
 
   ngOnInit(): void {
@@ -17,7 +19,7 @@ export class QuestaolistComponent implements OnInit {
   }
 
   getAll() {
-    this.questaoService.getAll().toPromise().then(data => {
+    this.questaoService.getQuestoes(parseInt(localStorage.getItem('id_questionario'))).toPromise().then(data => {
       this.questaoList = data;
       console.log(data);
     })
@@ -31,6 +33,22 @@ export class QuestaolistComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //this.getAll();
     });
+  }
+
+  delete(questao: Questao) {
+    console.log("Delete")
+    if (confirm("Deseja excluir")) {
+      this.questaoService.delete(questao).toPromise().then(data => {
+        alert("Questão removida com sucesso!")
+        this.getAll();
+      })
+    } else {
+
+    }
+  }
+  separarQuestoes(a: String){
+    let toArray = a.toString().split(";");
+    this.alternativas2 = toArray;
   }
 
 }
