@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gemini-app';
+
+  openNav() {
+    console.log("Teste")
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  closeNav() {
+    console.log("Fon")
+    document.getElementById("mySidenav").style.width = "0";
+    }
 }
+
+
