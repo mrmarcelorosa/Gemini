@@ -22,6 +22,6 @@ export class QuestaoService {
     return this.http.get(this.apiurl + '/questao/list');
   }
   public delete(questao: Questao): Observable<any> {
-    return this.http.post(this.apiurl + '/questionario/delete', questao);
+    return this.http.post(this.apiurl + '/questao/delete', questao);
   }
 }

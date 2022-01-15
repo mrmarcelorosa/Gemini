@@ -38,23 +38,31 @@ export class QuestaopageComponent implements OnInit {
   saveQuestao (){
     this.mergeAlternativas();
     this.questaoObj.idquest = this.idQuestionario;
-    console.log("modal",this.questaoObj, "id: ", this.idQuestionario);
      this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
        this.return = resposta;
        alert("Questao cadastrada: "+this.return.name);
+       window.location.reload();
        this.close();
      })
   }
 
   mergeAlternativas(){           //juntar alternativas na String alternativas usando ; pra dividir (mudar?)
     if(this.tipoQuestao ==1){
-      this.questaoObj.alternativas = this.alternativasObj.a + ";";
-      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.b + ";";
-      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.c + ";";
-      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.d + ";";
+      this.questaoObj.alternativas = this.alternativasObj.a + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.b + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.c + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.d + "*_*-*";
       this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.e;
-    }if(this.tipoQuestao == 3){
-      this.questaoObj.alternativas = this.alternativasObj.a + ";";
+    }
+    if(this.tipoQuestao ==2){
+      this.questaoObj.alternativas = "1.0" + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + "2.0" + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + "3.0" + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + "4.0" + "*_*-*";
+      this.questaoObj.alternativas = this.questaoObj.alternativas + "5.0";
+    }
+    if(this.tipoQuestao == 3){
+      this.questaoObj.alternativas = this.alternativasObj.a + "*_*-*";
       this.questaoObj.alternativas = this.questaoObj.alternativas + this.alternativasObj.b;
     }
     this.questaoObj.tipo_alternativa = this.tipoQuestao;
