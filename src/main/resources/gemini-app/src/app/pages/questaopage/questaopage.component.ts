@@ -41,7 +41,6 @@ export class QuestaopageComponent implements OnInit {
      this.questaoService.saveQuestao(this.questaoObj).subscribe(resposta =>{
        this.return = resposta;
        alert("Questao cadastrada: "+this.return.name);
-       window.location.reload();
        this.close();
      })
   }

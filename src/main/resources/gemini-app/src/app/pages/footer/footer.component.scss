@@ -1,0 +1,85 @@
+#footerGemini {
+    background-color: #5d5fef;
+    color: white;
+    padding-top: 30px;
+    margin-top: 30%;
+}
+.logo{
+    background: url("../../../../assets/logo-branca.png");
+    background-size: 220px ;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+#footerGemini .footer-copyright {
+    background-color: #333333;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+#footerGemini .row {
+    margin-bottom: 60px;
+}
+
+#footerGemini .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
+
+#footerGemini .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+#footerGemini ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#footerGemini h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#footerGemini h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+#footerGemini a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+#footerGemini p{
+    color: #d2d1d1;
+}
+
+#footerGemini a:hover,
+#footerGemini a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#footerGemini .btn {
+    color: white;
+    background-color: #d84b6b;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    #footerGemini {
+        text-align: center;
+    }
+}

@@ -35,7 +35,7 @@ export class QuestaolistComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //this.getAll();
+      this.getAll();
     });
   }
 

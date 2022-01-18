@@ -22,6 +22,7 @@ import { createGrupoComponent } from './pages/creategrupo/creategrupo.component'
 import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component';
 import { QuestaolistComponent } from './pages/questaolist/questaolist.component';
 import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 
@@ -37,7 +38,8 @@ import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.compo
     createGrupoComponent,
     ListargrupoComponent,
     QuestaolistComponent,
-    QuestaoModalComponent
+    QuestaoModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

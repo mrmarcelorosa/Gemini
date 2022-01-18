@@ -1,9 +1,9 @@
 
-<div class="direita">
+<div class="direita row">
     <button class="btn novo margem2" (click)="openDialog()">Nova questão</button>
-</div><br><br>
-<div class="margem" *ngFor="let questao of questaoList; let i = index">
-    <div class="card text-left shadow">
+</div><br><br><br>
+<div class="container mb-4" *ngFor="let questao of questaoList; let i = index">
+    <div class="card text-left shadow row">
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
@@ -14,8 +14,11 @@
         <div class="card-body">
           <div class="form-check form-check-inline-center">
             
-            <div class="mb-3" *ngIf="editando==false || questaoAtual.id!=questao.id">
-              <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" disabled  ></textarea>
+            <div class="mb-4 mt-3" *ngIf="editando==false || questaoAtual.id!=questao.id">
+              <h4 style="font-size:25px" *ngIf="i < 9"> {{questao.name}}</h4>
+              <h4 style="font-size:25px" *ngIf="i > 8"> {{questao.name}}</h4>
+             <!-- <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" disabled  ></textarea> -->
+            
             </div>
             <div class="mb-3" *ngIf="editando==true && questaoAtual.id==questao.id">
               <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" [(ngModel)]="questaoAtual.name"  ></textarea>
@@ -198,4 +201,5 @@
         </div>
       </div>
 </div>
+
 
