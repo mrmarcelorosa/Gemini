@@ -1,0 +1,5 @@
+<p *ngIf="showMessage">
+  <ngb-alert [type]="currentMessage.type" (closed)="showMessage = false">{{
+    currentMessage.message
+  }}</ngb-alert>
+</p>
