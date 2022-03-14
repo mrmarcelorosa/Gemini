@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { Questionario } from './../model/questionario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,17 @@ import { Injectable } from '@angular/core';
 export class QuestionarioService {
 
   constructor(private http: HttpClient) { }
-  apiurl = "http://localhost:8080";
 
   public save(questionario: Questionario): Observable<any> {
-    return this.http.post(this.apiurl + '/questionario/save', questionario);
+    return this.http.post(environment.apiurl + '/questionario/save', questionario);
   }
 
   public getAll(): Observable<any> {
-    return this.http.get(this.apiurl + '/questionario/list');
+    return this.http.get(environment.apiurl + '/questionario/list');
   }
 
   public delete(questionario: Questionario): Observable<any> {
-    return this.http.post(this.apiurl + '/questionario/delete', questionario);
+    return this.http.post(environment.apiurl + '/questionario/delete', questionario);
   }
 
 }

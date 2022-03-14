@@ -2,6 +2,7 @@ import { User } from './../model/user';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,12 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  apiurl = "http://localhost:8080";
-
   constructor(private http: HttpClient) { }
 
   public postUser(user: User): Observable<any> {
-    return this.http.post(this.apiurl + '/user/save', user);
+    return this.http.post(environment.apiurl + '/user/save', user);
   }
   
 }
