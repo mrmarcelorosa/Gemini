@@ -1,5 +1,6 @@
 package com.example.Gemini.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,13 +24,16 @@ public class Resposta implements Serializable {
     @Column(name="resposta")
     private String resposta;
 
-    @Column(name="id_quest")
-    private Integer idQuest;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Questao questao;
 
-    @Column(name="id_user")
-    private Integer idUser;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private User student;
 
-    @Column(name="id_grupo")
-    private Integer idGrupo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Grupo grupo;
 
 }
