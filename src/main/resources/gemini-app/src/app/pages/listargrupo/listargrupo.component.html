@@ -1,4 +1,4 @@
-<body style="background-color:#A5A6F6;">
+<body style="background-color:#ffffff;">
 <div class="container">
     <table class="table table-striped">
       <thead>
@@ -11,10 +11,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let group of listgrupo">
-          <td contenteditable='true' id="a">{{group.id}}</td>
-          <td contenteditable='true' id="b">{{group.id_turma}}</td>
-          <td contenteditable='true' id="c">{{group.nome}}</td>
-          <a class="btn btn-primary btn-lg" style="background-color: cornflowerblue;" (click)="editar(group)" role="button" >Alterar &raquo;</a>
+          <td contenteditable='true'>{{group.id}}</td>
+          <td contenteditable='true'>{{group.id_turma}}</td>
+          <td contenteditable='true'>{{group.nome}}</td>
+          <a class="btn btn-primary btn-lg" style="background-color: cornflowerblue;" (click)="openDialog(group.id,group.id_turma,group.nome)" role="button" >Alterar &raquo;</a>
           <a class="btn btn-primary btn-lg" style="background-color: rgb(208, 114, 245);" (click)="excluir(group)" role="button">Excluir &raquo;</a>
         </tr>
       </tbody>
