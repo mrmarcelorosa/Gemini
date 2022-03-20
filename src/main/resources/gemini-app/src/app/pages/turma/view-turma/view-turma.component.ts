@@ -27,5 +27,7 @@ export class ViewTurmaComponent implements OnInit {
     this.router.navigate(['turma/list']);
   }
 
-
+  public viewQuestionariosTurma = () => {
+    this.router.navigate([`turma/list-questionarios-turma/${this.turmaToView.id}`]);
+  }
 }

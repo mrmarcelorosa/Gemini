@@ -1,0 +1,38 @@
+<div id="list-questionarios-turma">
+    <mat-card class="col-md-12">
+        <mat-card-title>Questionários da turma</mat-card-title>
+        <mat-card-subtitle>Lista de questionários da turma:</mat-card-subtitle>
+
+        <table mat-table [dataSource]="listQuestionariosTurma" class="demo-table col-md-12">
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Id do questionário</th>
+                <td mat-cell *matCellDef="let questionario">{{questionario.id}}</td>
+            </ng-container>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Nome do questionário</th>
+                <td mat-cell *matCellDef="let questionario">{{questionario.name}}</td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Ações</th>
+                <td mat-cell *matCellDef="let questionario">
+                    <div class="row">
+                        <button class="rounded-button" mat-mini-fab aria-label="Visualizar relatório do questionário."
+                            (click)="visualizarRelatorioQuestionario(questionario)">
+                            <mat-icon>view_headline</mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </mat-card>
+</div>

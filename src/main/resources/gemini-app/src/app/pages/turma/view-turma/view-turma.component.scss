@@ -1,8 +1,26 @@
+@import "../../../../styles.scss";
 
 #view-turma {
     padding: 50px;
 
+    span{
+        font-weight: bold;
+    }
+
     mat-card{
+        cursor: pointer;
         margin-bottom: 10px;
+    }
+
+    .custom-card-title {
+        color: $main-color;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .icon-card {
+        color: $main-color;
+        margin-bottom: 5px;
     }
 }

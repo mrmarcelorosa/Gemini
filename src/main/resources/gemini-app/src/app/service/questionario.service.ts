@@ -23,4 +23,8 @@ export class QuestionarioService {
     return this.http.post(environment.apiurl + '/questionario/delete', questionario);
   }
 
+  public getQuestionariosByTurmaId(idTurma: Number) {
+    return this.http.get(`${environment.apiurl}/questionario/listByTurmaId/${idTurma}`);
+  }
+
 }

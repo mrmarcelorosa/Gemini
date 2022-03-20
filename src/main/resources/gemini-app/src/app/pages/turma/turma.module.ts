@@ -6,17 +6,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { TurmaRouter } from './turma.router';
+import { TurmaResolve } from './turma.resolve';
 import { ListTurmaResolve } from './list-turma/list-turma.resolve';
 import { ListTurmaComponent } from './list-turma/list-turma.component';
-import { CreateTurmaComponent } from './create-turma/create-turma.component';
 import { ViewTurmaComponent } from './view-turma/view-turma.component';
-import { TurmaResolve } from './turma.resolve';
 import { EditTurmaComponent } from './edit-turma/edit-turma.component';
+import { CreateTurmaComponent } from './create-turma/create-turma.component';
+import { ListQuestionariosTurmaResolve } from './listar-questionarios-turma/list-questionarios-turma.resolve';
+import { ListarQuestionariosTurmaComponent } from './listar-questionarios-turma/listar-questionarios-turma.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { EditTurmaComponent } from './edit-turma/edit-turma.component';
     CreateTurmaComponent,
     ListTurmaComponent,
     ViewTurmaComponent,
-    EditTurmaComponent
+    EditTurmaComponent,
+    ListarQuestionariosTurmaComponent
   ],
   imports: [
     FormsModule,
@@ -45,7 +48,8 @@ import { EditTurmaComponent } from './edit-turma/edit-turma.component';
     DatePipe,
     TurmaResolve,
     ListTurmaResolve,
-    MatDatepickerModule  
+    MatDatepickerModule,
+    ListQuestionariosTurmaResolve
   ],
 })
 export class TurmaModule {
