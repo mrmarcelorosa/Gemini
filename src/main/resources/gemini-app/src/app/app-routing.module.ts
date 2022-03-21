@@ -5,6 +5,7 @@ import { QuestComponent } from './pages/quest/quest.component';
 import { createGrupoComponent } from './pages/creategrupo/creategrupo.component';
 import { ListargrupoComponent } from './pages/listargrupo/listargrupo.component';
 import { QuestaolistComponent } from './pages/questaolist/questaolist.component';
+import { ResponderQuestComponent } from './pages/responder-quest/responder-quest.component';
 
 const routes: Routes = [
   {path:'',component:InitialComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'questionario',component:QuestComponent},
   {path:'creategrupo',component:createGrupoComponent},
   {path:'listargrupo',component:ListargrupoComponent},
-  {path:'questao',component:QuestaolistComponent}
+  {path:'questao',component:QuestaolistComponent},
+  {path:'responder-questao',component:ResponderQuestComponent}
 ];
 
 @NgModule({

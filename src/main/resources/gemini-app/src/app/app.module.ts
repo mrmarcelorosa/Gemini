@@ -25,6 +25,7 @@ import { QuestaolistComponent } from './pages/questaolist/questaolist.component'
 import { SimpleMessageComponent } from './pages/simple-message/simple-message.component';
 import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.component';
 import { QuestionarioModalComponent } from './pages/questionario-modal/questionario-modal.component';
+import { ResponderQuestComponent } from './pages/responder-quest/responder-quest.component';
 
 
 
@@ -42,7 +43,8 @@ import { QuestionarioModalComponent } from './pages/questionario-modal/questiona
     QuestaolistComponent,
     QuestaoModalComponent,
     FooterComponent,
-    SimpleMessageComponent
+    SimpleMessageComponent,
+    ResponderQuestComponent
   ],
   imports: [
     BrowserModule,

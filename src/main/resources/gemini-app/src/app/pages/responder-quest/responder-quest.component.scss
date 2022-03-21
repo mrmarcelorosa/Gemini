@@ -1,0 +1,45 @@
+.form-check-label{
+    color:  #5D5FEF;
+  }
+  
+  .card-header{
+    background-color:#5D5FEF;
+  }
+  .botao-cor{
+    background-color:#5D5FEF;
+  }
+  .direita{
+      float: right;
+  }
+  .margem2{
+    margin-right: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .novo{
+    background-color: #FFFFFF;
+    border-color: blueviolet;
+}
+.radioG {
+  width: 18px;
+  height: 18px;
+}
+
+.retirarPadding{
+  padding-left: 1px !important;
+}
+
+textarea:disabled{
+  background-color: #f8f8f8;
+}
+
+#bannerQuest{
+    width: 100%;
+    height: 140px;
+    margin-bottom: 20px;
+}
+
+.teste{
+    background: url("../../../assets/img/banner.jpg");
+    background-size: cover;
+}
