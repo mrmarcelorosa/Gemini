@@ -1,6 +1,7 @@
 package com.example.Gemini.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,7 @@ public class QuestionarioService {
     	return repository.findByTurmaId(idTurma);
     }
 
+    public Optional<Questionario> getById(Long id){
+        return repository.findById(id);
+    }
 }
