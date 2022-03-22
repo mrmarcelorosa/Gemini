@@ -9,5 +9,5 @@ export class Turma {
     dateEnding: string;
     mananger: User;
     studentList: User[];
-    groupList: Grupo[];
+    //groupList: Grupo[];
 }
