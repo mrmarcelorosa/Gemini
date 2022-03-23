@@ -21,6 +21,10 @@
             
             </div>
             <div class="mb-3" *ngIf="editando==true && questaoAtual.id==questao.id">
+              <div class="form-check text-right deGrupo mb-2">
+                <input class="form-check-input" id="checkbox1" type="checkbox" value="" [(ngModel)]="questaoAtual.grupo">
+                <label class="form-check-label" for="checkbox1">Questão De grupo</label>
+              </div>
               <textarea class="form-control" id="Textarea1" rows="2" value="{{questao.name}}" [(ngModel)]="questaoAtual.name"  ></textarea>
             </div>
            <!--Edição desligado-->

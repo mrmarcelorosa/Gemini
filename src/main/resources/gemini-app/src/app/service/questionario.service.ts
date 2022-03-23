@@ -23,6 +23,10 @@ export class QuestionarioService {
     return this.http.post(environment.apiurl + '/questionario/delete', questionario);
   }
 
+  public getQuestionarioById(id: number): Observable<any> {
+    return this.http.get(`${environment.apiurl}/questionario/get/${id}`)
+  }
+
   public getQuestionariosByTurmaId(idTurma: Number) {
     return this.http.get(`${environment.apiurl}/questionario/listByTurmaId/${idTurma}`);
   }

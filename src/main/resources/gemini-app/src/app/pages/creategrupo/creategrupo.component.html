@@ -1,16 +1,15 @@
 <<form class="form" [formGroup]="grupoForm">
 
-    <div style="font-size: 40px; color: #ffffff;">GEMINI</div>
     <br>
     <mat-form-field class="input-class" appearance="fill">
-      <mat-label style="color: #ffffff;">id_turma</mat-label>
+      <mat-label style="color: #A5A6F6;">id_turma</mat-label>
       <input type="text" matInput [errorStateMatcher]="matcher"
         placeholder="Ex. 1" [formControlName]="'id_turma'">
     </mat-form-field>
     <br>
-  
+
     <mat-form-field class="input-class" appearance="fill">
-      <mat-label style="color: #ffffff;">Nome</mat-label>
+      <mat-label style="color: #A5A6F6;">Nome</mat-label>
       <input type="nome" matInput [errorStateMatcher]="matcher"
         placeholder="Ex. A" [formControlName]="'nome'">
       <!-- <mat-error *ngIf="emailControl.hasError('email') && !emailControl.hasError('required')">
@@ -21,6 +20,6 @@
       </mat-error> -->
     </mat-form-field>
     <br>
-  
+
     <button mat-raised-button class="button" (click)="confirm()">Salvar</button>
   </form>

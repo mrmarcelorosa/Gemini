@@ -1,4 +1,5 @@
 import { User } from './user';
+import { Grupo } from './Grupo';
 
 export class Turma {
     id: number;
@@ -8,4 +9,5 @@ export class Turma {
     dateEnding: string;
     mananger: User;
     studentList: User[];
-} 
+    //groupList: Grupo[];
+}

@@ -1,0 +1,128 @@
+<div>
+  <img id="bannerQuest" src="../../../assets/img/banner.jpg" alt="">
+</div>
+<div class="tituloQuestionario">
+  <div class="container">
+    <h1>{{nomeQuestionario}}</h1>
+  </div>
+</div>
+
+<div class="container mb-4" *ngFor="let questao of questaoList; let i = index">
+    <div class="card text-left shadow row">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="#">Questão {{i+1}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="form-check form-check-inline-center">
+            
+            <div class="mb-4 mt-3" >
+              <h4 style="font-size:25px" *ngIf="i < 9"> 0{{i+1}}) {{questao.name}}</h4>
+              <h4 style="font-size:25px" *ngIf="i > 8"> {{i+1}}) {{questao.name}}</h4>
+            </div>
+            <div>
+              <div *ngIf="questao.tipo_alternativa==0" >
+                <div class="mb-3">
+                  <textarea class="form-control" (change)="responderQuestao($event.target.name, $event.target.value)" name="{{questao.id}}" rows="4" placeholder="Resposta:" ></textarea>
+                </div>
+              </div>
+              
+              <div *ngIf="questao.tipo_alternativa==1" >
+                {{separarQuestoes(questao.alternativas)}}
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="A"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea  class="form-control form-control-sm" id="Textarea2" rows="1" value="{{alternativas[0]}}"  
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="B"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea3" rows="1" value="{{alternativas[1]}}" 
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="C"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea4" rows="1" value="{{alternativas[2]}}"
+                  disabled></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="D"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea5" rows="1" value="{{alternativas[3]}}"
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="E"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea6" rows="1" value="{{alternativas[4]}}"
+                disabled ></textarea>
+                </div>
+              </div>
+              <div *ngIf="questao.tipo_alternativa==2" >
+                {{separarQuestoes(questao.alternativas)}}
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="A"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea  class="form-control form-control-sm" id="Textarea2" rows="1" value="{{alternativas[0]}}"  
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="B"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea3" rows="1" value="{{alternativas[1]}}" 
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="C"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea4" rows="1" value="{{alternativas[2]}}"
+                  disabled></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="D"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea5" rows="1" value="{{alternativas[3]}}"
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="E"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea6" rows="1" value="{{alternativas[4]}}"
+                disabled ></textarea>
+                </div>
+              </div>
+              
+              
+              <div *ngIf="questao.tipo_alternativa==3">
+                {{separarQuestoes(questao.alternativas)}}
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" value="A"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea7" rows="1" value="{{alternativas[0]}}" 
+                  disabled ></textarea>
+                </div>
+                <div class="mb-3">
+                  <input class="form-check-input radioG" type="radio" name="{{questao.id}}" id="inlineRadio1" value="B"
+                  (change)="responderQuestao($event.target.name, $event.target.value)">
+                  <textarea class="form-control form-control-sm" id="Textarea8" rows="1" value="{{alternativas[1]}}"
+                  disabled ></textarea>
+                </div>
+              </div>  
+            </div>
+        </div>
+      </div>
+</div>
+</div>
+
+<div class="container mt-5 text-right">
+  <button class="btn btn-success" (click)="salvarRespostas()">
+      Finalizar Questionário
+  </button>
+</div>
+
+

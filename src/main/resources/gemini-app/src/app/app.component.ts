@@ -11,12 +11,22 @@ export class AppComponent {
   openNav() {
     console.log("Teste")
     document.getElementById("mySidenav").style.width = "250px";
+
   }
-  
+
   closeNav() {
     console.log("Fon")
     document.getElementById("mySidenav").style.width = "0";
     }
+  
+    validarLogado() {
+      if (localStorage.getItem('user_data') == '' || localStorage.getItem('user_data') == null) {
+        return false;
+      }else{
+        return true;
+      }
+    }
+    
 }
 
 

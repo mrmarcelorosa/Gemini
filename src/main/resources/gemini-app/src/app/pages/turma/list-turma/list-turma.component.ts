@@ -30,6 +30,10 @@ export class ListTurmaComponent implements OnInit {
     this.router.navigate([`turma/view/${turma.id}`])
   }
 
+  public listStudent(turma: any){
+    this.router.navigate([`turma/student/${turma.id}`])
+  }
+
   public editTurma(turma: any){
     this.router.navigate([`turma/edit/${turma.id}`])
   }

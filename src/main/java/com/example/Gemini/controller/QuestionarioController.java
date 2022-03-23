@@ -1,7 +1,9 @@
 package com.example.Gemini.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.example.Gemini.model.Questao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,12 @@ public class QuestionarioController {
 		} catch (Exception e) {
 			return new Questionario();
 		}
+	}
+
+	@RequestMapping(value = "/get/{idQuestionario}", method = RequestMethod.GET)
+	public Questionario getByIdQuest(@PathVariable("idQuestionario") Long idQuestionario){
+		Optional<Questionario> optional = service.getById(idQuestionario);
+		return optional.get();
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)

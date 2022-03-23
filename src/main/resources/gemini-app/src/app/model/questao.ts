@@ -4,5 +4,6 @@ export class Questao{
     name: String;
     alternativas: String;
     resposta: String;
-    tipo_alternativa: number
+    tipo_alternativa: number;
+    grupo: boolean;
 }

@@ -30,11 +30,8 @@ public class QuestionarioService {
     public List<Questionario> getQuestionariosByIdTurma(Long idTurma) {
     	return repository.findByTurmaId(idTurma);
     }
-    
-    public Questionario getById(Long idQuestionario){
-        Optional<Questionario> optQuestionario = repository.findById(idQuestionario);
-        Questionario questionario = optQuestionario.isPresent() ? optQuestionario.get() : null;
-        
-        return questionario;
+
+    public Optional<Questionario> getById(Long id){
+        return repository.findById(id);
     }
 }
