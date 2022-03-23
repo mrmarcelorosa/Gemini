@@ -15,10 +15,8 @@ export class FooterComponent implements OnInit {
 
   validarLogado() {
     if (localStorage.getItem('user_data') == '' || localStorage.getItem('user_data') == null) {
-      console.log("não mostrar")
       return false;
     }else{
-      console.log("mostrar")
       return true;
     }
   }
