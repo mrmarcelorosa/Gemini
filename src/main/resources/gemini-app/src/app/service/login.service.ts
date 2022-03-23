@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginUser } from '../model/login-user';
 import { environment } from './../../environments/environment';
 import { SimpleMessageEnum } from '../enum/alert.enum';
+import { Router } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root',
@@ -16,7 +17,7 @@ export class LoginUserService {
 	private TOKEN_ENTRY_LOCAL_STORAGE: string = 'token';
 	private TOKEN_ENTRY_LOCAL_STORAGE_USER_DATA: string = 'user_data';
 
-	constructor(private http: HttpClient, private messageService: SimpleMessageService) {}
+	constructor(private http: HttpClient, private messageService: SimpleMessageService, private router: Router) {}
 
 	public loginUser = (loginUser: LoginUser) => {
 		this.http.post(`${environment.apiurl}/${this.ENDPOINT_LOGIN}`, loginUser).subscribe(
@@ -24,6 +25,7 @@ export class LoginUserService {
 				console.log('User', tokenDTO);
 				this.processJwtToken(tokenDTO);
 				this.showMessageLogin('Login realizado com sucesso.', SimpleMessageEnum.SUCESSO);
+				this.router.navigate(['/turma/list']);
 			},
 			(error) => {
 				this.showMessageLogin('Erro ao fazer login.', SimpleMessageEnum.ERRO);
@@ -45,7 +47,6 @@ export class LoginUserService {
 				return true;
 			}
 		}
-
 		return false;
 	};
 
