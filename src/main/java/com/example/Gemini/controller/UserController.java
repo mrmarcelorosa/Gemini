@@ -1,13 +1,14 @@
 package com.example.Gemini.controller;
 
+import com.example.Gemini.model.Questionario;
 import com.example.Gemini.model.User;
 import com.example.Gemini.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -23,6 +24,11 @@ public class UserController {
         }catch (Exception e){
             return new User();
         }
+    }
+
+    @RequestMapping(value = "/get/{email}", method = RequestMethod.GET)
+    public UserDetails getByEmail(@PathVariable("email") String email){
+        return service.loadUserByUsername(email);
     }
 
 

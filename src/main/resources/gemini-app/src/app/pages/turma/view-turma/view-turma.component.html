@@ -18,7 +18,11 @@
     </mat-card>
 
     <mat-card class="col-md-12">
-        <mat-card-title>Alunos da turma:</mat-card-title>
+        <div class="row">
+            <div class="col-sm-10"><mat-card-title>Alunos da turma:</mat-card-title></div>
+            <div class="col-sm-2"><button class="btn btn-primary" (click)="openDialog()">Add aluno</button></div>
+        </div>
+        
         <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
 
         <div *ngIf="turmaToView.studentList && turmaToView.studentList.length > 0">

@@ -19,6 +19,7 @@ import { EditTurmaComponent } from './edit-turma/edit-turma.component';
 import { CreateTurmaComponent } from './create-turma/create-turma.component';
 import { ListQuestionariosTurmaResolve } from './listar-questionarios-turma/list-questionarios-turma.resolve';
 import { ListarQuestionariosTurmaComponent } from './listar-questionarios-turma/listar-questionarios-turma.component';
+import { StudentCreateComponent } from './student-create/student-create.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ListarQuestionariosTurmaComponent } from './listar-questionarios-turma/
     ListTurmaComponent,
     ViewTurmaComponent,
     EditTurmaComponent,
-    ListarQuestionariosTurmaComponent
+    ListarQuestionariosTurmaComponent,
+    StudentCreateComponent
   ],
   imports: [
     FormsModule,

@@ -15,5 +15,9 @@ export class UserService {
   public postUser(user: User): Observable<any> {
     return this.http.post(environment.apiurl + '/user/save', user);
   }
+
+  public getByEmail(email: String){
+    return this.http.get(environment.apiurl + '/user/get/'+email);
+  }
   
 }

@@ -17,6 +17,7 @@ export class QuestComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
+    
   }
 
   getAll() {

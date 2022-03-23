@@ -11,8 +11,9 @@ export class AppComponent {
   openNav() {
     console.log("Teste")
     document.getElementById("mySidenav").style.width = "250px";
+
   }
-  
+
   closeNav() {
     console.log("Fon")
     document.getElementById("mySidenav").style.width = "0";
