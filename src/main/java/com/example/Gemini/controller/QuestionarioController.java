@@ -49,7 +49,7 @@ public class QuestionarioController {
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public Questionario getById(@PathVariable("id") Long id) {
-		return service.getById(id);
+		return service.getById(id).get();
 	}
 
 	@RequestMapping(value = "/listByTurmaId/{idTurma}", method = RequestMethod.GET)
