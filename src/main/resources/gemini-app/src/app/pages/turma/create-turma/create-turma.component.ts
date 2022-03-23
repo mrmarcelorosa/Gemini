@@ -17,7 +17,7 @@ export class CreateTurmaComponent implements OnInit {
   public turmaForm: FormGroup;
 
   private user: User = {
-    id: 1,
+    id: null,
     name: "",
     email: "",
     password: ""
@@ -59,7 +59,11 @@ export class CreateTurmaComponent implements OnInit {
     let description = this.turmaForm.get("description").value;
     let dateCreation = this.turmaForm.get("dateCreation").value;
     let dateEnding = this.turmaForm.get("dateEnding").value;
-
+    
+    let usuario = JSON.parse(localStorage.getItem('user_data'));
+    
+    this.user.id = usuario['id']
+    
     return {
       id: undefined,
       name: name,

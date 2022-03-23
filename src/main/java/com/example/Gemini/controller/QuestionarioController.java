@@ -31,9 +31,9 @@ public class QuestionarioController {
 		}
 	}
 
-	@RequestMapping(value = "/get", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Questionario getByIdQuest(@RequestBody Long id){
-		Optional<Questionario> optional = service.getById(id);
+	@RequestMapping(value = "/get/{idQuestionario}", method = RequestMethod.GET)
+	public Questionario getByIdQuest(@PathVariable("idQuestionario") Long idQuestionario){
+		Optional<Questionario> optional = service.getById(idQuestionario);
 		return optional.get();
 	}
 
