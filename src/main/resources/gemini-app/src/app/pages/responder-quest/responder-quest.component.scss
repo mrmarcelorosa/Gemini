@@ -36,10 +36,17 @@ textarea:disabled{
 #bannerQuest{
     width: 100%;
     height: 140px;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
 }
 
 .teste{
     background: url("../../../assets/img/banner.jpg");
     background-size: cover;
+}
+
+.tituloQuestionario{
+  border-bottom: 1px solid #c0c0c0;
+  background-color: #f2f2f2;
+  padding-top: 10px;
+  margin-bottom: 20px;
 }

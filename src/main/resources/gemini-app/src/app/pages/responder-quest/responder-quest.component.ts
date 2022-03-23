@@ -4,6 +4,8 @@ import { RespostaService} from 'src/app/service/resposta.service';
 import {Resposta} from 'src/app/model/resposta'
 import {Grupo} from 'src/app/model/Grupo'
 import {User} from 'src/app/model/user'
+import { Router } from '@angular/router';
+import { QuestionarioService } from 'src/app/service/questionario.service';
 
 @Component({
   selector: 'app-responder-quest',
@@ -14,7 +16,9 @@ export class ResponderQuestComponent implements OnInit {
   questaoList: Array<any> = [];
   alternativas: Array<any>;
   respostaList: Array<Resposta> = [];
-  constructor(private questaoService: QuestaoService, private respostaService: RespostaService) { }
+  nomeQuestionario: string;
+  constructor(private questaoService: QuestaoService, private respostaService: RespostaService, private questionarioService: QuestionarioService,
+     private router: Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -23,6 +27,12 @@ export class ResponderQuestComponent implements OnInit {
   getAll() {
     this.questaoService.getQuestoes(parseInt(localStorage.getItem('id_questionario'))).toPromise().then(data => {
       this.questaoList = data;
+      if(this.questaoList){
+        this.questionarioService.getQuestionarioById(this.questaoList[0].idquest).toPromise().then(data =>{
+          let questionario = data;
+          this.nomeQuestionario = questionario.name;
+        });
+      }
       for(let questao of data){
         let respostaVazia: Resposta = new Resposta;
         respostaVazia.questao = questao;
@@ -48,11 +58,25 @@ export class ResponderQuestComponent implements OnInit {
     }
   }
   salvarRespostas(){
-    this.respostaService.saveRespostas(this.respostaList).subscribe(data => {
+    let validar: boolean = false;
+    for(let i = 0; i < this.respostaList.length; i++){
+      if(this.respostaList[i].resposta !=null && this.respostaList[i].resposta != ""){
+        validar = true;
+      }else{
+        validar = false;
+      }
+    }
+    if(validar){
+      this.respostaService.saveRespostas(this.respostaList).subscribe(data => {
         console.log(data);
         console.log(this.respostaList);
-        alert("Deu Certo!")
-    })
+        alert("Resposta enviada!")
+        this.router.navigate(["/questionario"]);
+      })
+    }else{
+      alert("Por favor preencha todas as questões do questionário");
+    }
+    
   }
 }
 

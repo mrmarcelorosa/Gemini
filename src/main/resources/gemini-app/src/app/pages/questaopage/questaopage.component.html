@@ -29,6 +29,10 @@
         (click)="onSimnaoAtivo(true)">
         <label class="form-check-label" for="inlineRadio2">Sim/não</label>
       </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="checkbox1" type="checkbox" value="" [(ngModel)]="questaoObj.grupo">
+        <label class="form-check-label" for="checkbox1">De grupo</label>
+      </div>
       <div class="mb-3">
         <textarea class="form-control" id="Textarea1" rows="2" placeholder="Enunciado" [(ngModel)]="questaoObj.name"></textarea>
       </div>

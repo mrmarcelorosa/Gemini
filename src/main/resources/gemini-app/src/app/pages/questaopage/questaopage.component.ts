@@ -22,6 +22,7 @@ export class QuestaopageComponent implements OnInit {
   simnaoAtivo = false;
   tipoQuestao: number=0;
   idQuestionario:number = parseInt(localStorage.getItem('id_questionario'));
+  teste: any;
   
   
   ngOnInit(): void {
@@ -33,6 +34,7 @@ export class QuestaopageComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close();
+    console.log(this.teste);
   }
 
   saveQuestao (){

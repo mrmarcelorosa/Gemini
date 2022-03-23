@@ -17,6 +17,17 @@ export class AppComponent {
     console.log("Fon")
     document.getElementById("mySidenav").style.width = "0";
     }
+  
+    validarLogado() {
+      if (localStorage.getItem('user_data') == '' || localStorage.getItem('user_data') == null) {
+        console.log("não mostrar")
+        return false;
+      }else{
+        console.log("mostrar")
+        return true;
+      }
+    }
+    
 }
 
 
