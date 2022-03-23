@@ -26,15 +26,12 @@
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef>Ações</th>
                 <td mat-cell *matCellDef="let turma">
-                    <div class="row">
+                    <div class="row" *ngIf="isDono()">
                         <button class="rounded-button" mat-mini-fab aria-label="Visualizar turma." (click)="viewTurma(turma)">
-                            <mat-icon>view_headline</mat-icon>
+                            <mat-icon>visibility icon</mat-icon>
                         </button>
                         <button class="rounded-button" mat-mini-fab aria-label="Editar turma." (click)="editTurma(turma)">
                             <mat-icon>edit</mat-icon>
-                        </button>
-                        <button class="rounded-button" mat-mini-fab aria-label="Excluir turma." (click)="listStudent(turma)">
-                            <mat-icon>person add icon</mat-icon>
                         </button>
                         <button class="rounded-button" mat-mini-fab aria-label="Excluir turma." (click)="deleteTurma(turma)">
                             <mat-icon>delete</mat-icon>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Turma } from 'src/app/model/turma';
+import { User } from 'src/app/model/user';
 import { TurmaService } from 'src/app/service/turma.service';
 
 @Component({
@@ -13,12 +14,14 @@ export class ListTurmaComponent implements OnInit {
 
   public listTurma: Turma[];
   public displayedColumns: string[] = ['name', 'dateCreation', 'dateEnding', 'actions'];
+  user: User;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private turmaService: TurmaService) {
     this.listTurma = this.getTurmaList();  
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user_data'));
   }
 
   public getTurmaList() {
@@ -51,7 +54,7 @@ export class ListTurmaComponent implements OnInit {
   } 
 
   private refreshList = () => {
-    this.turmaService.listAll().subscribe(
+    this.turmaService.listAll(this.user.id).subscribe(
       (updatedListTurma) => {
         this.listTurma = updatedListTurma;
       },
@@ -59,6 +62,10 @@ export class ListTurmaComponent implements OnInit {
         console.log("ERROR")
       }
     )
+  }
+
+  isDono(){
+    return true;
   }
 
 }

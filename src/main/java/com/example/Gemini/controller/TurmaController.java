@@ -40,9 +40,9 @@ public class TurmaController {
 		turmaService.delete(id);
 	}
 
-	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	public List<Turma> listAll() {
-		return turmaService.getAll();
+	@RequestMapping(value = "/listAll/{id}", method = RequestMethod.GET)
+	public List<Turma> listAll(@PathVariable("id") Long id) {
+		return turmaService.getUserId(id);
 	}
 
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)

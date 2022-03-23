@@ -41,7 +41,7 @@ export class StudentCreateComponent implements OnInit {
       u.email = result['email'];
       this.data.studentList.push(u);
       this.turmaService.updateTurma(this.data).subscribe(date1=>{
-        this.dialogRef.close()
+        this.dialogRef.close(this.data.studentList);
       })
     })
     

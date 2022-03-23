@@ -18,8 +18,8 @@ export class TurmaService {
     return this.http.post(`${this.endpointTurma}/save`, turma);
   }
 
-  public listAll(): Observable<any> {
-    return this.http.get(`${this.endpointTurma}/listAll`);
+  public listAll(idUser: number): Observable<any> {
+    return this.http.get(`${this.endpointTurma}/listAll/` + idUser);
   }
 
   public getTurma(id): Observable<any> {

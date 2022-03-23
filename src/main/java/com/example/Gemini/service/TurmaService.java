@@ -121,4 +121,7 @@ public class TurmaService {
 		return localizedStudent != null;
 	}
 
+    public List<Turma> getUserId(Long id) {
+		return turmaRepository.findByTurmaId(id);
+    }
 }

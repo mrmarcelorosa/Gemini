@@ -1,10 +1,11 @@
 import { User } from 'src/app/model/user';
 import { StudentCreateComponent } from './../student-create/student-create.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Turma } from 'src/app/model/turma';
+import { MatTable } from '@angular/material/table';
 
 
 @Component({
@@ -34,6 +35,9 @@ export class ViewTurmaComponent implements OnInit {
     this.router.navigate([`turma/list-questionarios-turma/${this.turmaToView.id}`]);
   }
 
+  @ViewChild(MatTable) table: MatTable<Turma>
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(StudentCreateComponent, {
       width: '800px',
@@ -41,7 +45,8 @@ export class ViewTurmaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
+      this.turmaToView.studentList = result;
+      this.table.renderRows();
       
       //this.turmaToView.studentList.push(u);
     });
