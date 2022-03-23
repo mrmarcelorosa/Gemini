@@ -78,4 +78,18 @@ public class TurmaController {
 		return new ResponseEntity<String>("Adicionado com sucesso", HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/atualizarListaEstudantesTurma/{idTurma}", method = RequestMethod.POST)
+	public ResponseEntity<String> updateStudentListTurma(@RequestBody List<Long> usersIds,
+			@PathVariable("idTurma") Long idTurma) {
+		try {
+			this.turmaService.updateStudentListTurma(usersIds, idTurma);
+		} catch (TurmaException ex) {
+			return new ResponseEntity<String>(ex.getMessage(), HttpStatus.EXPECTATION_FAILED);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Erro ao inserir: " + e.getMessage(), HttpStatus.EXPECTATION_FAILED);
+		}
+
+		return new ResponseEntity<String>("Adicionado com sucesso", HttpStatus.OK);
+	}
+
 }

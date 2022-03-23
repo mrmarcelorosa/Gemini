@@ -1,12 +1,15 @@
 package com.example.Gemini.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.example.Gemini.exceptions.TurmaException;
+import com.example.Gemini.model.Questionario;
 import com.example.Gemini.model.Turma;
 import com.example.Gemini.model.User;
 import com.example.Gemini.repository.TurmaRepository;
@@ -67,7 +70,10 @@ public class TurmaService {
 	}
 
 	public Turma getById(Long id) {
-		return turmaRepository.findById(id).get();
+		Optional<Turma> optTurma = turmaRepository.findById(id);
+        Turma turma = optTurma.isPresent() ? optTurma.get() : null;
+        
+        return turma;
 	}
 
 	public void delete(Long id) {
@@ -120,5 +126,19 @@ public class TurmaService {
 
 		return localizedStudent != null;
 	}
+	
+
+	public void updateStudentListTurma(List<Long> usersIds, Long idTurma) throws Exception {
+        List<User> newListUser = new ArrayList<User>();
+        Turma turma = this.getById(idTurma);
+
+        for(Long userId : usersIds) {
+            User user = userService.getUserById(userId);
+            newListUser.add(user);
+        }
+
+        turma.setStudentList(newListUser);
+        this.uptate(turma);
+    }
 
 }

@@ -5,6 +5,7 @@ import { User } from 'src/app/model/user';
 import { Turma } from 'src/app/model/turma';
 import { TurmaService } from 'src/app/service/turma.service';
 import { Router } from '@angular/router';
+import { LoginUserService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-create-turma',
@@ -23,7 +24,7 @@ export class CreateTurmaComponent implements OnInit {
     password: ""
   }
 
-  constructor(private formBuilder: FormBuilder, private turmaService: TurmaService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private turmaService: TurmaService, private router: Router, private loginUser: LoginUserService) {
     this.turmaForm = this.createFormTurma();
   }
 
@@ -40,6 +41,8 @@ export class CreateTurmaComponent implements OnInit {
   }
 
   public saveTurma = () => {
+    let logedUser = this.loginUser.getLogedUserData();
+    this.user = logedUser;
     let turma: Turma = this.getTurmaFromForm();
  
     this.turmaService.saveTurma(turma).subscribe(

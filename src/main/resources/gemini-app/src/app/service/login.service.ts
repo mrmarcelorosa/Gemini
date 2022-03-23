@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginUser } from '../model/login-user';
 import { environment } from './../../environments/environment';
 import { SimpleMessageEnum } from '../enum/alert.enum';
+import { User } from '../model/user';
 
 @Injectable({
 	providedIn: 'root',
@@ -30,6 +31,11 @@ export class LoginUserService {
 			}
 		);
 	};
+
+	public getLogedUserData = () => {
+		let userData = localStorage.getItem("user_data");
+		return Object.assign(new User(), userData);
+	}
 
 	private processJwtToken = (tokenDTO: TokenDTO) => {
 		localStorage.setItem(this.TOKEN_ENTRY_LOCAL_STORAGE, tokenDTO.tokenString);

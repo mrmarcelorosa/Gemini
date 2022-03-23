@@ -38,6 +38,11 @@ public class QuestionarioController {
 	public void delete(@RequestBody Questionario questionario) {
 		service.delete(questionario);
 	}
+	
+	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+	public Questionario getById(@PathVariable("id") Long id) {
+		return service.getById(id);
+	}
 
 	@RequestMapping(value = "/listByTurmaId/{idTurma}", method = RequestMethod.GET)
 	public List<Questionario> getQuestionarioListByIdTurma(@PathVariable("idTurma") Long idTurma) {
