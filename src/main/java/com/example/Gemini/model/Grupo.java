@@ -19,13 +19,14 @@ import java.util.List;
 public class Grupo implements Serializable {
 
     private static final long serialVersionUID = -3009157732242241606L;
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.TABLE)
     private long id;
+
     @Column(name="nome")
     public String nome;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private List<User> groupStudent;
 }

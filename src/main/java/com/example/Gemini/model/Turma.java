@@ -5,14 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -47,13 +40,11 @@ public class Turma implements Serializable {
 	
     @Column(name="dateEnding")
     private LocalDate dateEnding;
-    
-    @OneToMany(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private List<User> studentList;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private List<Grupo> groupList;
 
 }

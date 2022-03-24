@@ -24,6 +24,7 @@ export class ModalGroupComponent implements OnInit {
   ngOnInit(): void {
     this.listAlunos = this.data.lista;
     this.grupo = JSON.parse(localStorage.getItem('grupoClick'));
+    console.log("Lista que envia para o bd",this.listAlunos);
   }
 
   alternarAluno(aluno: any){
@@ -32,12 +33,11 @@ export class ModalGroupComponent implements OnInit {
 
   salvarAluno(){
     if(this.nomeAlunoSelecionado == this.alunoSelecionado.name){
-      this.listAlunos.push(this.alunoSelecionado);
-      this.grupo.groupStudent = this.listAlunos;
+      //this.listAlunos.push(this.alunoSelecionado);
+      this.grupo.groupStudent.push(this.alunoSelecionado)
       console.log("aqui3", this.grupo)
       this.service.postGrupo(this.grupo).subscribe(date1=>{
-        console.log(date1)
-        this.dialogRef.close(this.grupo.groupStudent);
+        this.dialogRef.close(date1.groupStudent);
       })
     }
   }
