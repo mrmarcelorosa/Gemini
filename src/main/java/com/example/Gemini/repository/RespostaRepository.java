@@ -1,11 +1,17 @@
 package com.example.Gemini.repository;
 
-import com.example.Gemini.model.Questao;
-import com.example.Gemini.model.Resposta;
-import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import com.example.Gemini.model.Resposta;
+
 public interface RespostaRepository extends CrudRepository<Resposta, Long> {
-    List<Resposta> findAll();
+	List<Resposta> findAll();
+
+	@Query(value = "SELECT * FROM Resposta r " +
+			"WHERE r.questao_id = :idQuestao", nativeQuery = true)
+			List<Resposta> findAllRespostasByIdQuestao(@Param("idQuestao") Long idQuestao);
 }

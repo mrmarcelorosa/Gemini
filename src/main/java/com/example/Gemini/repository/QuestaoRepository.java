@@ -13,4 +13,10 @@ public interface QuestaoRepository extends CrudRepository<Questao, Long> {
 
     @Query(value = "SELECT * FROM Questao q WHERE q.idquest = :idquest", nativeQuery = true)
     List<Questao> findByIdQuest(@Param("idquest") Integer idquest);
+    
+    @Query(value = "SELECT * FROM Questao q " +
+    		"WHERE q.idquest = :idquest AND " +
+    		"(q.tipo_alternativa = 1 OR q.tipo_alternativa = 2 OR q.tipo_alternativa = 3)", nativeQuery = true)
+    		List<Questao> findByIdQuestionarioAdequadasRelatorio(@Param("idquest") Long idquest);
+    
 }
