@@ -16,11 +16,16 @@ export class QuestaoService {
   public getQuestoes(id: number): Observable<any> {
     return this.http.post(environment.apiurl + '/questao/getquestoes', id);
   }
-  
+
   public getAll(): Observable<any> {
     return this.http.get(environment.apiurl + '/questao/list');
   }
   public delete(questao: Questao): Observable<any> {
     return this.http.post(environment.apiurl + '/questao/delete', questao);
+  }
+  public getQuestoesPorIdQuestionarioRelatorio(
+    idQuestionario: Number
+  ): Observable<any> {
+    return this.http.get(`${environment.apiurl}/questao/getQuestoesRelatorio/${idQuestionario}`);
   }
 }

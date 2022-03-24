@@ -7,6 +7,7 @@ import { TurmaService } from 'src/app/service/turma.service';
 import { Router } from '@angular/router';
 import { LoginUserService } from 'src/app/service/login.service';
 import { Grupo } from 'src/app/model/Grupo';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-turma',
@@ -26,7 +27,7 @@ export class CreateTurmaComponent implements OnInit {
     password: ""
   }
 
-  constructor(private formBuilder: FormBuilder, private turmaService: TurmaService, private router: Router, private loginUser: LoginUserService) {
+  constructor(private formBuilder: FormBuilder, private turmaService: TurmaService, private router: Router, private loginUser: LoginUserService, private location: Location) {
     this.turmaForm = this.createFormTurma();
   }
 
@@ -82,7 +83,7 @@ export class CreateTurmaComponent implements OnInit {
   }
 
   public goBackToList = () => {
-    this.router.navigate(['turma/list/']);
+    this.location.back();
   }
 
 }

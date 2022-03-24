@@ -1,0 +1,29 @@
+<div class="padding-container">
+  <mat-card class="col-md-12">
+    <mat-card-title>Relatório de respostar para questionário</mat-card-title>
+    <mat-card-subtitle>Gráficos plotados a partir de respostar em questões de tipo quantitativas.</mat-card-subtitle>
+
+    <div class="row">
+      <div class="col-md-6" *ngFor="let chartDataQuestao of listChartDataQuestoes; let i = index">
+        <div *ngIf="chartDataQuestao.typeGraph === 3">
+          <h2>{{ chartDataQuestao.title }}</h2>
+          <div style="width: 80%">
+            <canvas baseChart [chartType]="'pie'" [legend]="true" [data]="chartDataQuestao.chartDataPie" [options]="chartOptions" [labels]="chartDataQuestao.labels"> </canvas>
+          </div>
+        </div>
+        <div *ngIf="chartDataQuestao.typeGraph !== 3">
+          <h2>{{ chartDataQuestao.title }}</h2>
+          <div style="width: 80%">
+            <canvas baseChart [chartType]="'bar'" [legend]="true" [datasets]="chartDataQuestao.chartData" [options]="chartOptions" [labels]="chartDataQuestao.labels"> </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 container-button-back">
+        <button class="square-button" mat-raised-button (click)="goBack()">Voltar</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

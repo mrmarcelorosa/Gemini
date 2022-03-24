@@ -1,21 +1,23 @@
 <div id="view-turma" class="col-md-12">
-    <mat-card>
-        <mat-card-title>Visualizar turma</mat-card-title>
-        <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
-
-        <div class="row">
-            <span class="col-md-12">Nome: {{ turmaToView.name }}</span>
-        </div>
-        <div class="row">
-            <span class="col-md-6">Data de início: {{ turmaToView.dateCreation }}</span>
-            <span class="col-md-6">Data de encerramento: {{ turmaToView.dateEnding }}</span>
-        </div>
-
-        <div class="row">
-            <span class="col-md-12">Descrição: </span>
-            <span class="col-md-12">{{ turmaToView.description }}</span>
-        </div>
-    </mat-card>
+    <div class="row"> 
+        <mat-card class="col-md-12">
+            <mat-card-title>Visualizar turma</mat-card-title>
+            <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
+    
+            <div class="row">
+                <span class="col-md-12">Nome: {{ turmaToView.name }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-6">Data de início: {{ turmaToView.dateCreation }}</span>
+                <span class="col-md-6">Data de encerramento: {{ turmaToView.dateEnding }}</span>
+            </div>
+    
+            <div class="row">
+                <span class="col-md-12">Descrição: </span>
+                <span class="col-md-12">{{ turmaToView.description }}</span>
+            </div>
+        </mat-card>
+    </div>
     <div class="row">
         <mat-card class="col-md-6">
             <div class="row">
@@ -26,7 +28,7 @@
             <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
 
             <div *ngIf="turmaToView.studentList && turmaToView.studentList.length > 0">
-                <table mat-table [dataSource]="turmaToView.studentList" class="mat-elevation-z8 demo-table col-md-12">
+                <table mat-table [dataSource]="turmaToView.studentList" class="demo-table col-md-12">
                     <!-- Position Column -->
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef>Nome</th>
@@ -98,15 +100,18 @@
         </mat-card>
     </div>
 
-    <mat-card class="col-md-4" (click)="viewQuestionariosTurma()">
-        <mat-icon class="icon-card">view_headline</mat-icon>
-        <span class="custom-card-title">Visualizar questionários da turma</span>
+    <div class="row">
+        <mat-card class="col-md-4" (click)="viewQuestionariosTurma()">
+            <mat-icon class="icon-card">view_headline</mat-icon>
+            <span class="custom-card-title">Visualizar questionários da turma</span>
+    
+            <p>
+                Visualizar todos os questionarios cadastrados para essa turma.
+            </p>
+        </mat-card>
+    </div>
 
-        <p>
-            Visualizar todos os questionarios cadastrados para essa turma.
-        </p>
-    </mat-card>
-
-
-    <button class="square-button" (click)="goBackListTurma()" mat-raised-button>Voltar</button>
+    <div class="row">
+        <button class="square-button" (click)="goBackListTurma()" mat-raised-button>Voltar</button>
+    </div>
 </div>

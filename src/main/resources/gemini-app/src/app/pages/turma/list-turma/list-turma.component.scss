@@ -2,4 +2,13 @@
 
 #list-turma {
     margin: 50px;
+
+    .container-button-back {
+        margin-top: 50px;
+        display: flex;
+    }
+        
+    .container-button-back button{
+        margin-left: auto;
+    }
 }

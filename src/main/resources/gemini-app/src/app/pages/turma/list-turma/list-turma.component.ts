@@ -72,4 +72,8 @@ export class ListTurmaComponent implements OnInit {
     }
   }
 
+  public createTurma() {
+    this.router.navigate([`turma/create`]);
+  }
+
 }

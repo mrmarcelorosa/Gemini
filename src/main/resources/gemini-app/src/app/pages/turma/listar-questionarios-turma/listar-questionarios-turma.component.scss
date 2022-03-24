@@ -1,3 +1,14 @@
-#list-questionarios-turma{
+#list-questionarios-turma {
+  .list-quetionarios-turma {
+    padding: 50px;
+  }
+  .container-button-back {
+    margin-top: 50px;
+    display: flex;
+  }
 
+  .container-button-back button {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
