@@ -27,5 +27,5 @@ public class Grupo implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<User> studentList;
+    private List<User> groupStudent;
 }

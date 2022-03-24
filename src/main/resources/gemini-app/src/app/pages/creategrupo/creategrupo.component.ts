@@ -48,7 +48,7 @@ export class createGrupoComponent implements OnInit {
     let grupo = new Grupo()
     this.grupoForm.controls['id'].value? grupo.id = this.grupoForm.controls['id'].value: null;
     grupo.nome = this.grupoForm.controls['nome'].value
-    grupo.studentList = [];
+    grupo.groupStudent = [];
     console.log(grupo);
     this.service.postGrupo(grupo).subscribe(data=>{
       if(data){

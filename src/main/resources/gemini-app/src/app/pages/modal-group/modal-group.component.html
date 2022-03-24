@@ -1,0 +1,11 @@
+<div class="container">
+    <mat-form-field appearance="fill" class="select-alunos">
+        <mat-label class="label-titulo">Integrantes Disponíveis: </mat-label>
+        <mat-select [(value)]="nomeAlunoSelecionado">
+          <mat-option *ngFor="let aluno of listAlunos" [value]="aluno.name" (click)="alternarAluno(aluno)">
+            {{aluno.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="btn btn-success" (click)="salvarAluno()">Adicionar</button>
+</div>

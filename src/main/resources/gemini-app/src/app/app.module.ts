@@ -3,12 +3,13 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { MatCardModule } from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,9 +29,7 @@ import { SimpleMessageComponent } from './pages/simple-message/simple-message.co
 import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.component';
 import { QuestionarioModalComponent } from './pages/questionario-modal/questionario-modal.component';
 import { ResponderQuestComponent } from './pages/responder-quest/responder-quest.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
+import { ModalGroupComponent } from './pages/modal-group/modal-group.component';
 
 
 
@@ -49,10 +48,10 @@ import { MatTableModule } from '@angular/material/table';
     QuestaoModalComponent,
     FooterComponent,
     SimpleMessageComponent,
-    ResponderQuestComponent
+    ResponderQuestComponent,
+    ModalGroupComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -65,10 +64,9 @@ import { MatTableModule } from '@angular/material/table';
     MatBottomSheetModule,
     MatButtonModule,
     MatDialogModule,
-    MatCardModule,
     MatSelectModule,
-    MatFormFieldModule,     
-    MatTableModule
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [
     {

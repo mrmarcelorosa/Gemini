@@ -1,5 +1,5 @@
 import { group } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Grupo } from 'src/app/model/Grupo';
 import { GrupoService } from 'src/app/service/grupo.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,6 +9,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Turma } from 'src/app/model/turma';
+import { ModalGroupComponent } from '../modal-group/modal-group.component';
 
 @Component({
   selector: 'app-listargrupo',
@@ -58,15 +59,19 @@ export class ListargrupoComponent implements OnInit {
     })*/
     
   }
+  @ViewChild(MatTable) table: MatTable<Turma>
   openDialog(): void {
-    const dialogRef = this.dialog.open(GrupoModalComponent, {
+    localStorage.setItem('grupoClick', JSON.stringify(this.grupo))
+    const dialogRef = this.dialog.open(ModalGroupComponent, {
       width: '800px',
       data: {
-        dataKey:this.grupo, lista: this.listaAlunosTurma
+        dataKey: this.grupo, lista: this.listaAlunosTurma
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.grupo.groupStudent = result;
+      //this.table.renderRows();
     });
   }
   excluir(group:Grupo){

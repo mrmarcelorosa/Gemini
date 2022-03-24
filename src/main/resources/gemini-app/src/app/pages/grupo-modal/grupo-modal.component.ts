@@ -16,8 +16,8 @@ export class GrupoModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
  ) { }
 
- listAlunos:Array<any>=[];
- grupo: Grupo = new Grupo();
+ listAlunos: Array<any>=[];
+ public grupo: Grupo = new Grupo();
  alunoSelecionado: any;
  countries = [
   { id: 1, name: "United States" },
@@ -29,7 +29,7 @@ export class GrupoModalComponent implements OnInit {
 
  ngOnInit() {
    this.listAlunos = this.data.lista;
-   console.log("Lista de alunos: ", this.listAlunos)
+   //console.log("Lista de alunos: ", this.listAlunos)
   /*
   this.service.getlist().toPromise().then(data=>{
     this.listgrupo=data;
