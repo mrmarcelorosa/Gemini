@@ -6,6 +6,7 @@ import { Turma } from 'src/app/model/turma';
 import { TurmaService } from 'src/app/service/turma.service';
 import { Router } from '@angular/router';
 import { LoginUserService } from 'src/app/service/login.service';
+import { Grupo } from 'src/app/model/Grupo';
 
 @Component({
   selector: 'app-create-turma',
@@ -15,6 +16,7 @@ import { LoginUserService } from 'src/app/service/login.service';
 export class CreateTurmaComponent implements OnInit {
 
   private studentList: User[];
+  private groupList: Grupo[];
   public turmaForm: FormGroup;
 
   private user: User = {
@@ -74,7 +76,8 @@ export class CreateTurmaComponent implements OnInit {
       dateCreation: dateCreation,
       dateEnding: dateEnding,
       mananger: this.user,
-      studentList: this.studentList 
+      studentList: this.studentList, 
+      groupList: this.groupList
     }
   }
 

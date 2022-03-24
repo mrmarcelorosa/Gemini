@@ -47,7 +47,8 @@ export class EditTurmaComponent implements OnInit {
       dateCreation: dateCreation,
       dateEnding: dateEnding,
       mananger: this.turmaToEdit.mananger,
-      studentList: this.turmaToEdit.studentList 
+      studentList: this.turmaToEdit.studentList, 
+      groupList: this.turmaToEdit.groupList
     }
   }
 

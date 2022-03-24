@@ -1,16 +1,10 @@
-<body style="background-color:#ffffff;">
     <div class="container">
-        <table class="table table-striped">
-          <thead>
-            <div style="font-size: 40px; color: #ffffff;">GEMINI</div>
-              <tr>
-                <th>Nome</th>
-              </tr>
-          </thead>
-          <tbody>
-              <td contenteditable='true' id="a"></td>
-              <a class="btn btn-primary btn-lg" style="background-color: cornflowerblue;" (click)="editar()" role="button" >Alterar &raquo;</a>
-          </tbody>
-        </table>
+          <div *ngFor= "let aluno of listaAlunos">
+            {{aluno.name}}
+          </div>  
+
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option *ngFor="let aluno of listaAlunos" [value]="aluno.name">{{aluno.name}}</option>
+            </select>
+            <br>
       </div>
-    </body>

@@ -1,5 +1,6 @@
 package com.example.Gemini.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,8 +22,10 @@ public class Grupo implements Serializable {
     @Id
     @GeneratedValue
     private long id;
-    @Column(name="id_turma")
-    public Integer id_turma;
     @Column(name="nome")
     public String nome;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<User> studentList;
 }

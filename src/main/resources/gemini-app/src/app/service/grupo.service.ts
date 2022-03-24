@@ -22,4 +22,7 @@ export class GrupoService {
   public delete(grupo: Grupo): Observable<any> {
     return this.http.post(environment.apiurl + '/grupo/delete', grupo);
   }
+  public getGrupoById(id: number): Observable<any> {
+    return this.http.get(`${environment.apiurl}/grupo/get/${id}`)
+  }
 }

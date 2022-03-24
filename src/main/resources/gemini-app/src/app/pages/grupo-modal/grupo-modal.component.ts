@@ -16,18 +16,28 @@ export class GrupoModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
  ) { }
 
- listgrupo:Array<any>=[];
+ listAlunos:Array<any>=[];
  grupo: Grupo = new Grupo();
+ alunoSelecionado: any;
+ countries = [
+  { id: 1, name: "United States" },
+  { id: 2, name: "Australia" },
+  { id: 3, name: "Canada" },
+  { id: 4, name: "Brazil" },
+  { id: 5, name: "England" }
+];
 
  ngOnInit() {
+   this.listAlunos = this.data.lista;
+   console.log("Lista de alunos: ", this.listAlunos)
+  /*
   this.service.getlist().toPromise().then(data=>{
     this.listgrupo=data;
-  })
-  document.getElementById("a").textContent=this.data.nome
+  })*/
+  //document.getElementById("a").textContent=this.data.nome
 }
-editar(){
+/*editar(){
   this.grupo.id=this.data.id;
-  this.grupo.id_turma=this.data.id_turma;
   this.grupo.nome=document.getElementById("a").textContent;
   const queryString = window.location.search;
   this.service.postGrupo(this.grupo).toPromise().then(data=>{
@@ -38,5 +48,5 @@ editar(){
     })
   })
   
-}
+}*/
 }

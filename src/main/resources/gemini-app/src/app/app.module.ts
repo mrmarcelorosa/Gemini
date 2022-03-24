@@ -4,6 +4,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -26,6 +28,9 @@ import { SimpleMessageComponent } from './pages/simple-message/simple-message.co
 import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.component';
 import { QuestionarioModalComponent } from './pages/questionario-modal/questionario-modal.component';
 import { ResponderQuestComponent } from './pages/responder-quest/responder-quest.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -47,6 +52,7 @@ import { ResponderQuestComponent } from './pages/responder-quest/responder-quest
     ResponderQuestComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -58,7 +64,11 @@ import { ResponderQuestComponent } from './pages/responder-quest/responder-quest
     ReactiveFormsModule,
     MatBottomSheetModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatSelectModule,
+    MatFormFieldModule,     
+    MatTableModule
   ],
   providers: [
     {

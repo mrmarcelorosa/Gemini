@@ -1,6 +1,7 @@
 package com.example.Gemini.service;
 
 import com.example.Gemini.model.Grupo;
+import com.example.Gemini.model.Questionario;
 import com.example.Gemini.model.User;
 import com.example.Gemini.repository.GrupoRepository;
 import com.example.Gemini.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GrupoService {
@@ -31,5 +33,8 @@ public class GrupoService {
         }catch(Exception e){
             return false;
         }
+    }
+    public Optional<Grupo> getById(Long id){
+        return repository.findById(id);
     }
 }

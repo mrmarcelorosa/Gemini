@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Turma } from 'src/app/model/turma';
 import { MatTable } from '@angular/material/table';
+import { createGrupoComponent } from '../../creategrupo/creategrupo.component';
+import { Grupo } from 'src/app/model/Grupo';
 
 
 @Component({
@@ -17,6 +19,7 @@ export class ViewTurmaComponent implements OnInit {
 
   public turmaToView: Turma;
   public displayedColumns = ['name', 'email']
+  public displayedColumnsGrupos = ['name', 'acoes']
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private dialog: MatDialog) {
     this.turmaToView = this.activatedRoute && this.activatedRoute.snapshot && this.activatedRoute.snapshot.data["turma"];
@@ -25,6 +28,7 @@ export class ViewTurmaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('listaAlunos', JSON.stringify(this.turmaToView.studentList));
   }
 
   public goBackListTurma = () => {
@@ -47,8 +51,35 @@ export class ViewTurmaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.turmaToView.studentList = result;
       this.table.renderRows();
-      
+
       //this.turmaToView.studentList.push(u);
     });
+  }
+  isDono() {
+    let user = JSON.parse(localStorage.getItem('user_data'));
+    if (user.id == this.turmaToView.mananger.id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  addGrupo() {
+    const dialogRef = this.dialog.open(createGrupoComponent, {
+      width: '800px',
+      data: this.turmaToView
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.turmaToView.groupList = result;
+      this.table.renderRows();
+    });
+  }
+  
+  viewGrupo(grupo: Grupo) {
+    this.router.navigate([`listargrupo/${grupo.id}`])
+  }
+  deleteGrupo(grupo: Grupo) {
+
   }
 }

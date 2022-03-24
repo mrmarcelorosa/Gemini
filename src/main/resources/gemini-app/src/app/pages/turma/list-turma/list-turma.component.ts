@@ -64,8 +64,12 @@ export class ListTurmaComponent implements OnInit {
     )
   }
 
-  isDono(){
-    return true;
+  isDono(turma: Turma){
+    if(this.user.id == turma.mananger.id){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'turma', loadChildren: () => import('./pages/turma/turma.module').then(module => module.TurmaModule)},
   {path:'questionario',component:QuestComponent},
   {path:'creategrupo',component:createGrupoComponent},
-  {path:'listargrupo',component:ListargrupoComponent},
+  {path:'listargrupo/:id',component:ListargrupoComponent},
   {path:'questao',component:QuestaolistComponent},
   {path:'responder-questao',component:ResponderQuestComponent}
 ];

@@ -16,39 +16,87 @@
             <span class="col-md-12">{{ turmaToView.description }}</span>
         </div>
     </mat-card>
+    <div class="row">
+        <mat-card class="col-md-6">
+            <div class="row">
+                <div class="col-sm-10"><mat-card-title>Alunos da turma:</mat-card-title></div>
+                <div class="col-sm-2"><button class="btn btn-primary" (click)="openDialog()" *ngIf="isDono()">Add aluno</button></div>
+            </div>
+            
+            <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
 
-    <mat-card class="col-md-12">
-        <div class="row">
-            <div class="col-sm-10"><mat-card-title>Alunos da turma:</mat-card-title></div>
-            <div class="col-sm-2"><button class="btn btn-primary" (click)="openDialog()">Add aluno</button></div>
-        </div>
+            <div *ngIf="turmaToView.studentList && turmaToView.studentList.length > 0">
+                <table mat-table [dataSource]="turmaToView.studentList" class="mat-elevation-z8 demo-table col-md-12">
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Nome</th>
+                        <td mat-cell *matCellDef="let student">{{student.name}}</td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>E-mail</th>
+                        <td mat-cell *matCellDef="let student">{{ student.email }} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+
+            <div *ngIf="turmaToView.studentList && turmaToView.studentList.length === 0">
+                <span>Lista de alunos vazia.</span>
+            </div>
+        </mat-card>
         
-        <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
+        <mat-card class="col-md-6">
+            <div class="row">
+                <div class="col-sm-10"><mat-card-title>Grupos da turma:</mat-card-title></div>
+                <div class="col-sm-2"><button class="btn btn-primary" (click)="addGrupo()" *ngIf="isDono()">Add Grupo</button></div>
+            </div>
+            
+            <mat-card-subtitle>Grupos disponíveis da turma</mat-card-subtitle>
 
-        <div *ngIf="turmaToView.studentList && turmaToView.studentList.length > 0">
-            <table mat-table [dataSource]="turmaToView.studentList" class="mat-elevation-z8 demo-table col-md-12">
-                <!-- Position Column -->
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef>Nome</th>
-                    <td mat-cell *matCellDef="let student">{{student.name}}</td>
-                </ng-container>
+            <div *ngIf="turmaToView.groupList && turmaToView.groupList.length > 0">
+                <table mat-table [dataSource]="turmaToView.groupList" class="mat-elevation-z8 demo-table col-md-12">
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Nome</th>
+                        <td mat-cell *matCellDef="let grupo">{{grupo.nome}}</td>
+                    </ng-container>
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef>E-mail</th>
-                    <td mat-cell *matCellDef="let student">{{ student.email }} </td>
-                </ng-container>
+                    <ng-container matColumnDef="acoes">
+                        <th mat-header-cell *matHeaderCellDef>Ações</th>
+                        <td mat-cell *matCellDef="let grupo">
+                            <div class="row" *ngIf="isDono(turmaToView)">
+                                <button class="rounded-button" mat-mini-fab aria-label="Visualizar turma." (click)="viewGrupo(grupo)">
+                                    <mat-icon>visibility icon</mat-icon>
+                                </button>
+                                <button class="rounded-button" mat-mini-fab aria-label="Editar turma." (click)="viewGrupo(grupo)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button class="rounded-button" mat-mini-fab aria-label="Excluir turma." (click)="viewTurma(grupo)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                            <div class="row" *ngIf="isDono(turmaToView) == false">
+                                <button class="rounded-button" mat-mini-fab aria-label="Visualizar turma." (click)="viewGrupo(grupo)">
+                                    <mat-icon>visibility icon</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </div>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsGrupos"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsGrupos;"></tr>
+                </table>
+            </div>
 
-        <div *ngIf="turmaToView.studentList && turmaToView.studentList.length === 0">
-            <span>Lista de alunos vazia.</span>
-        </div>
-    </mat-card>
-
+            <div *ngIf="turmaToView.groupList && turmaToView.groupList.length === 0">
+                <span>Lista de grupos vazia.</span>
+            </div>
+        </mat-card>
+    </div>
 
     <mat-card class="col-md-4" (click)="viewQuestionariosTurma()">
         <mat-icon class="icon-card">view_headline</mat-icon>

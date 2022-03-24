@@ -3,9 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Grupo } from 'src/app/model/Grupo';
 import { GrupoService } from 'src/app/service/grupo.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { GrupoModalComponent } from '../grupo-modal/grupo-modal.component';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Turma } from 'src/app/model/turma';
 
 @Component({
   selector: 'app-listargrupo',
@@ -16,14 +19,26 @@ import { Inject } from '@angular/core';
 
 export class ListargrupoComponent implements OnInit {
 
+
   listgrupo:Array<any>=[];
+  listaAlunosTurma: Array<Turma>
   editando: any;
   grupo: Grupo = new Grupo();
-  constructor(private service:GrupoService,private dialog: MatDialog) { }
+  public displayedColumns = ['name', 'email']
+  constructor(private service:GrupoService,private dialog: MatDialog, private route: ActivatedRoute) { 
+    this.route.params.subscribe(params => this.grupo.id = params['id']);
+  }
 
   @Inject(MAT_DIALOG_DATA) public data: any
   
   ngOnInit(): void {
+    this.listaAlunosTurma = JSON.parse(localStorage.getItem('listaAlunos'));
+    console.log(this.listaAlunosTurma)
+    this.service.getGrupoById(this.grupo.id).subscribe( data =>{
+      this.grupo = data;
+    })
+
+
     this.service.getlist().toPromise().then(data=>{
       this.listgrupo=data;
     })
@@ -43,11 +58,11 @@ export class ListargrupoComponent implements OnInit {
     })*/
     
   }
-  openDialog(id,id_turma,nome): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(GrupoModalComponent, {
       width: '800px',
       data: {
-        dataKey:id,id,id_turma,nome
+        dataKey:this.grupo, lista: this.listaAlunosTurma
       }
     });
 
@@ -71,4 +86,7 @@ export class ListargrupoComponent implements OnInit {
     })
   }*/
 
+  isDono(){
+    return true;
+  }
 }

@@ -51,4 +51,9 @@ public class Turma implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
     private List<User> studentList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<Grupo> groupList;
+
 }

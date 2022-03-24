@@ -23,4 +23,9 @@
         color: $main-color;
         margin-bottom: 5px;
     }
+    .rounded-button {
+        background-color: $main-color !important;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
 }
