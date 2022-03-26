@@ -29,6 +29,7 @@ export class ViewTurmaComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.setItem('listaAlunos', JSON.stringify(this.turmaToView.studentList));
+    localStorage.setItem('turmaQuestionario', JSON.stringify(this.turmaToView));
   }
 
   public goBackListTurma = () => {

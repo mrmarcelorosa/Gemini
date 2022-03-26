@@ -30,6 +30,7 @@ import { QuestaoModalComponent } from './pages/questao-modal/questao-modal.compo
 import { QuestionarioModalComponent } from './pages/questionario-modal/questionario-modal.component';
 import { ResponderQuestComponent } from './pages/responder-quest/responder-quest.component';
 import { ModalGroupComponent } from './pages/modal-group/modal-group.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -66,6 +67,7 @@ import { ModalGroupComponent } from './pages/modal-group/modal-group.component';
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
+    MatTableModule,
     MatFormFieldModule
   ],
   providers: [

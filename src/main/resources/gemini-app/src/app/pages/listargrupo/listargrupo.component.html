@@ -18,7 +18,7 @@
           <mat-card-subtitle>Informações gerais sobre a turma</mat-card-subtitle>
 
           <div *ngIf="grupo.groupStudent && grupo.groupStudent.length > 0">
-              <table mat-table [dataSource]="grupo.studentList" class="mat-elevation-z8 demo-table col-md-12">
+              <table mat-table [dataSource]="grupo.groupStudent" class="mat-elevation-z8 demo-table col-md-12">
                   <!-- Position Column -->
                   <ng-container matColumnDef="name">
                       <th mat-header-cell *matHeaderCellDef>Nome</th>

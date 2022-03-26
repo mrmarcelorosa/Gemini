@@ -41,10 +41,10 @@ public class Turma implements Serializable {
     @Column(name="dateEnding")
     private LocalDate dateEnding;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<User> studentList;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Grupo> groupList;
 
 }

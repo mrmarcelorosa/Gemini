@@ -16,6 +16,7 @@ export class ResponderQuestComponent implements OnInit {
   questaoList: Array<any> = [];
   alternativas: Array<any>;
   respostaList: Array<Resposta> = [];
+  usuarioAtual: User;
   nomeQuestionario: string;
   constructor(private questaoService: QuestaoService, private respostaService: RespostaService, private questionarioService: QuestionarioService,
      private router: Router) { }
@@ -25,10 +26,12 @@ export class ResponderQuestComponent implements OnInit {
   }
 
   getAll() {
+    this.usuarioAtual = JSON.parse(localStorage.getItem('user_data'));
+    console.log("Usuarioi", this.usuarioAtual)
     this.questaoService.getQuestoes(parseInt(localStorage.getItem('id_questionario'))).toPromise().then(data => {
       this.questaoList = data;
       if(this.questaoList){
-        this.questionarioService.getQuestionarioById(this.questaoList[0].idquest).toPromise().then(data =>{
+        this.questionarioService.getQuestionarioById(parseInt(localStorage.getItem('id_questionario'))).toPromise().then(data =>{
           let questionario = data;
           this.nomeQuestionario = questionario.name;
         });
@@ -37,9 +40,9 @@ export class ResponderQuestComponent implements OnInit {
         let respostaVazia: Resposta = new Resposta;
         respostaVazia.questao = questao;
         //respostaVazia.grupo = new Grupo;
-        //respostaVazia.grupo.id = ;
-        //respostaVazia.student = new User;
-        //respostaVazia.student.id = ;
+        //respostaVazia.grupo.id = this.usuarioAtual.id;
+        respostaVazia.student = new User();
+        respostaVazia.student.id = this.usuarioAtual.id;
         this.respostaList.push(respostaVazia);
       }
     })
@@ -71,7 +74,7 @@ export class ResponderQuestComponent implements OnInit {
         console.log(data);
         console.log(this.respostaList);
         alert("Resposta enviada!")
-        this.router.navigate(["/questionario"]);
+        this.router.navigate(["/turma/list"]);
       })
     }else{
       alert("Por favor preencha todas as questões do questionário");

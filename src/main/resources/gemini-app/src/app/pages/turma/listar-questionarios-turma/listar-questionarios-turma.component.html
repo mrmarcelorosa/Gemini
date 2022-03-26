@@ -2,6 +2,7 @@
     <mat-card class="col-md-12 list-quetionarios-turma">
         <mat-card-title>Questionários da turma</mat-card-title>
         <mat-card-subtitle>Lista de questionários da turma:</mat-card-subtitle>
+        <div class="text-right"><button class="btn btn-primary text-right" (click)="salvarQuestionario()">Add Questionario</button></div> 
 
         <table mat-table [dataSource]="listQuestionariosTurma" class="demo-table col-md-12">
 
@@ -21,11 +22,21 @@
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef>Ações</th>
                 <td mat-cell *matCellDef="let questionario">
-                    <div class="row">
+                    <div class="row" *ngIf="isDono()">
                         <button class="rounded-button" mat-mini-fab aria-label="Visualizar relatório do questionário."
                             (click)="visualizarRelatorioQuestionario(questionario)">
-                            <mat-icon>view_headline</mat-icon>
+                            <mat-icon>pie_chart</mat-icon>
                         </button>
+                        <button class="rounded-button" mat-mini-fab aria-label="Administrar questionário."
+                            (click)="administrarQuestionario(questionario)">
+                            <mat-icon>library_add</mat-icon>
+                        </button>
+                    </div>
+                    <div class="row" *ngIf="isDono() == false">
+                        <button class="rounded-button" mat-mini-fab aria-label="Responder questionário."
+                        (click)="responderQuestionario(questionario)">
+                        <mat-icon>view_headline</mat-icon>
+                    </button>
                     </div>
                 </td>
             </ng-container>

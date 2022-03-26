@@ -27,6 +27,6 @@ public class Grupo implements Serializable {
     @Column(name="nome")
     public String nome;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<User> groupStudent;
 }

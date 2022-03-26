@@ -19,9 +19,6 @@ export class QuestionarioModalComponent implements OnInit {
     this.createform(new Questionario())
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
   createform(user: Questionario) {
     this.questForm = new FormGroup({
@@ -35,13 +32,15 @@ export class QuestionarioModalComponent implements OnInit {
     let questionario = new Questionario()
     this.questForm.controls['id'].value? questionario.id = this.questForm.controls['id'].value: null;
     questionario.name = this.questForm.controls['name'].value
-    questionario.turmaId = 1
+    questionario.turmaId = JSON.parse(localStorage.getItem('turmaQuestionario')).id;
     //questionario.turmaId = this.questForm.controls['password'].value
     console.log(questionario);
-    this.service.save(questionario).toPromise().then(data=>{
+    this.service.save(questionario).subscribe(data=>{
       alert("Cadastro realizado com sucesso!")
-      this.onNoClick()
+      this.dialogRef.close(data);
     })
   }
+
+
 
 }

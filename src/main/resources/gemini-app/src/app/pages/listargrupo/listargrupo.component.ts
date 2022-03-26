@@ -42,6 +42,7 @@ export class ListargrupoComponent implements OnInit {
 
     this.service.getlist().toPromise().then(data=>{
       this.listgrupo=data;
+      console.log("con", data)
     })
     this.editando = {};
     console.log(this.data)
@@ -71,7 +72,7 @@ export class ListargrupoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.grupo.groupStudent = result;
-      //this.table.renderRows();
+      this.table.renderRows();
     });
   }
   excluir(group:Grupo){
